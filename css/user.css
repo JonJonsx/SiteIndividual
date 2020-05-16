@@ -1,0 +1,29 @@
+.header{
+    display: none !important;
+}
+.container{
+    width: 85% !important;
+    margin: 0 auto;
+    display: flex;
+}
+.boxLeft{
+    background-color: green;
+    margin: 0 auto;
+    width: 20%;
+}
+.boxRight{
+    margin: 0 auto;
+    background-color: red;
+    width: 80%;
+    height: 100vh;
+
+}
+.boxRight .boxCard{
+    display: flex;
+}
+.boxCard .card{
+    margin: auto;
+    background-color: lawngreen;
+    width: 100px;
+    height: 40vh;
+}

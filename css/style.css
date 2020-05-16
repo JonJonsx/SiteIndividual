@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    background: #36393e; 
+    font-family: 'Baloo 2', cursive;
+    color: #fff;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    position: fixed;
+    background-color: rgba(142, 68, 173, 0.3);
+    width: 100%;
+    bottom: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    color: white;
+    margin: auto;
+}
+
+.menu li  ul{
+    position:absolute; 
+    top:66px; 
+    left:0;
+    display:none;
+}   
+.menu li:hover ul, .menu li.over ul{
+    display:block;
+}
+
+.menu li ul li{
+    /* border:1px solid #c0c0c0;  */
+    float: left;
+    display:block; 
+    width:100px;
+    text-align: center;
+    background-color: rgba(142, 68, 173, 0.3);
+}
+
+
+.menu li {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 24px 0;
+    color: #fff;
+}
+
+.menu li:hover {
+    background-color: rgba(142, 68, 173, 0.5);
+}
+
+
+.menu li a {
+    text-decoration: none;
+    padding: 25px 20px;
+    color: #fff;
+}
+.read {
+    width: 100%;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.read h1 {
+    text-align: center;
+    font-size: 50px;
+}
+.divSearch{
+    width: 100%;
+    display: flex;
+}
+.divSearch #search{
+    margin: 0 auto 10px;
+    width: 49%;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid #0d001c;
+    outline: none;
+    font-size: 20px;
+    padding: 0 10px;
+    transition: all 1s;
+}
+.divSearch #search:focus{
+    border: 2px solid #2b015c;
+    width: 100%;
+}
+.boxCard{
+    width: 99%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.boxCard .card{
+    padding: 10px;
+    text-align: center;
+    flex: 1 1 250px; /* primeiro valor 1 expansao, 1 que pode ficar menor,  200px a base , se ele não poder ter 200px ele quebra */
+    width: 25%;
+    max-width: 250px;
+    height: 160px;
+    max-height: 150px;
+    margin: 20px auto;
+    min-height: 350px;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.boxCard .card:hover{
+    transform: scale(1.1);
+}
+.boxCard .card img{
+    width: 100%;
+    height: 70%;
+    box-sizing: border-box;
+    border-radius: 15px 15px 30% 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.card > .read{
+    font-size: 15px;
+    width: 100%;
+}
+.boxCard .card label{
+    display: block;
+    box-sizing: border-box;
+}
+.boxCard .card .namePoke{
+    font-size: 20px;
+}
+.boxCard .card .types{
+    display: inline;
+    width: 50%;
+    margin: 0 auto;
+}
+.card > .imgBox{
+    position: relative;
+}
+.card > .imgBox > .fa-heart{
+    color: #e74c3c;
+    font-size: 20px;
+    margin: 10px;
+    position: absolute;
+    float: right;
+    cursor: pointer;
+}
+.card > .imgBox > .fa-heart:hover{
+    color: #c0392b;
+}
