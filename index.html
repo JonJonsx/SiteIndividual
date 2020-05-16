@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <title>Site institucional individual</title>
 </head>
 
@@ -20,21 +21,22 @@
                     <li><a href="">Home</a></li>
                     <li><a href="">Sobre</a></li>
                     <li><a href="#batata">Contato</a></li>
-                    <li class="submenu"><a href="pages/login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li class="submenu"><a href="pages/login.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
     <section class="container">
-            <div>
-                <h1>Seja bem vindo</h1>
-                <p></p>
-            </div>
-            <div class="divSearch">
-                <input type="text" id="search">
-            </div>
-            <div class="boxCard" id="boxCard">
-            </div>
+        <div>
+            <h1>Seja bem vindo</h1>
+            <p></p>
+        </div>
+        <div class="divSearch">
+            <input type="text" id="search">
+        </div>
+        <div class="boxCard" id="boxCard">
+        </div>
         </div>
     </section>
 </body>
@@ -42,5 +44,34 @@
 </html>
 <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
 <script src="js/index.js"></script>
-<script type="module" src="js/cards.js"></script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
+<script type="module" src="./js/cards.js"></script>
+<script type="module">
+    import Pokemon from './js/dataPoke.js';
+    import buildCard from './js/cards.js';
+    const datapoke = () => {
+        for (var i = 1; i <= 20; i++) {
+            const numero = i;
+
+            Pokemon.getPokemon(i).then(data => {
+                const pokemon = new Pokemon(data.id,
+                    data.name,
+                    data.sprites.front_default,
+                    data.height,
+                    data.weight,
+                    data.stats[5].base_stat,
+                    data.stats[4].base_stat,
+                    data.stats[3].base_stat,
+                    data.stats[2].base_stat,
+                    data.stats[1].base_stat,
+                    data.stats[0].base_stat,
+                    data.types[0].type.name
+                );
+                buildCard(pokemon);
+            });
+        }
+    }
+    window.addEventListener('load', function () {
+        datapoke();
+    })
+</script>
