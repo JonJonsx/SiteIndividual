@@ -62,38 +62,30 @@
 
                         <label for="">Weight</label>
                         <label for="">10kg</label>
-                        
+
                         <label for="">Gender</label>
                         <label for=""></label>
-                        
+
                         <label for="">Category</label>
                         <label for="">Worm</label>
-                        
+
                         <label for="">Abilities</label>
                         <label for="">Shield Dust</label>
                     </div>
                 </div>
             </div>
             <div class="boxCard">
-                <div class="card">
-                    
-                </div>
-                <div class="card">
-
-                </div>
-                <div class="card">
-
-                </div>
+            </div>
             </div>
         </div>
     </section>
 </body>
 
 </html>
-<script src="../js/datapoke.js"></script>
-<script>
+<script type="module">
+    import Pokemon from '../js/datapoke.js';
 
-    function buildProgress(pokemon){
+    function buildProgress(pokemon) {
         document.getElementById('txtId').innerText = pokemon.id;
         document.getElementById('txtnome').innerText = pokemon.name;
         document.getElementById('progressHp').value = pokemon.hp;
@@ -104,13 +96,10 @@
         document.getElementById('progressSpeed').value = pokemon.speed;
     }
 
-    let pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/2`)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data){
-        pokemon = new Pokemon(data.id,
+    
+    Pokemon.getPokemon(2).then(data => {
+        const pokemon = new Pokemon(
+            data.id,
             data.name,
             data.sprites.front_default,
             data.height,
@@ -120,13 +109,13 @@
             data.stats[3].base_stat,
             data.stats[2].base_stat,
             data.stats[1].base_stat,
-            data.stats[0].base_stat);
+            data.stats[0].base_stat,
+            data.types[0].type.name
+        );
+        buildProgress(pokemon);
+    });
 
-            buildProgress(pokemon)
-        
-    })
 
-    
 </script>
 <script src="../js/index.js"></script>
 <script src="../js/jquery.js"></script>

@@ -10,14 +10,16 @@ class Pokemon {
         def,
         spAtk,
         spDef,
-        speed
+        speed,
+        type
     ) {
 
         this.id = id;
         this.name = name;
-        this.sprite = image;
+        this.image = image;
         this.height = height;
         this.weight = weight;
+        this.type = type;
         this.hp = hp;
         this.atk = atk;
         this.def = def;
@@ -26,4 +28,15 @@ class Pokemon {
         this.speed = speed;
 
     }
+    static getPokemon(id){
+        return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            return data
+        })
+    }
 }
+
+export default Pokemon;
