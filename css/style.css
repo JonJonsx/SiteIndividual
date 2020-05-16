@@ -92,7 +92,6 @@ body {
     width: 100%;
 }
 
-
 /* Cards  */
 .boxCard{
     width: 99%;
@@ -100,11 +99,10 @@ body {
     flex-wrap: wrap;
 }
 .boxCard .card{
-    padding: 10px;
     text-align: center;
     flex: 1 1 250px; /* primeiro valor 1 expansao, 1 que pode ficar menor,  200px a base , se ele não poder ter 200px ele quebra */
     width: 25%;
-    height: 320px;
+    height: 290px;
     margin: 20px auto;
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
@@ -117,11 +115,27 @@ body {
     transform: scale(1.1);
 }
 .boxCard .card img{
-    width: 100%;
-    height: 70%;
-    box-sizing: border-box;
-    border-radius: 15px 15px 30% 30%;
+    width: 80%;
+    height: 100%;
+}
+.boxCard .card .imgBox{
+    border-radius: 15px 15px 50% 50%;
     background-color: rgba(0, 0, 0, 0.5);
+    height: 60%;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+}
+.card > .imgBox > .fa-heart{
+    position: absolute;
+    top: 5px;
+}
+.card > .imgBox > .fa-heart:hover{
+    color: #c0392b;
+}
+
+.boxCard .card .read{
+    padding: 10px;
 }
 .boxCard .card label{
     display: block;
@@ -134,18 +148,7 @@ body {
     display: inline;
     width: 50%;
     margin: 0 auto;
-}
-.card > .imgBox{
-    position: relative;
-}
-.card > .imgBox > .fa-heart{
-    color: #e74c3c;
-    font-size: 20px;
-    margin: 10px;
-    position: absolute;
-    float: right;
-    cursor: pointer;
-}
-.card > .imgBox > .fa-heart:hover{
-    color: #c0392b;
+    border: 1px solid #fff;
+    padding: 3px;
+    border-radius: 10px;
 }

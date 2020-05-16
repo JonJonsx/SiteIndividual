@@ -15,6 +15,7 @@ window.addEventListener('scroll',function(){ // AQUI CHAMA A FUNÇÃO PELO SCROL
     animeScroll();
 });
 
+
 function colorType(){
     var types  = ['unknown','fire','water','eletric','glass','ice','fight','poison','ground','flying','psychic','bug','rock','ghost','dragon','steel','dark','fairy'];
     
@@ -27,9 +28,3 @@ function colorType(){
         }
     };
 }
-
-window.addEventListener('load',function(){
-    datapoke();
-})
-
-

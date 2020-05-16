@@ -4,22 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <title>Site institucional individual</title>
 </head>
 
 <body>
-    <div>
+    <section>
         <div class="container">
-            <div>
-                
+            <div class="pokeGeral">
+                <div>
+                    <label id="txtnome" for="">Nome</label>
+                    <label for="">Nº <span id="txtId"></span></label>
+                </div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <label for="">Fire</label>
+                    <label for="">Leaf</label>
+                </div>
+            </div>
+
+            <div class="dataPoke">
+                <div class="stats">
+                    <h3>Stats</h3>
+                    <div>
+                        <label for="">HP</label>
+                        <progress id="progressHp" value="20" max="100"> 32% </progress>
+                    </div>
+                    <div>
+                        <label for="">Attack</label>
+                        <progress id="progressAtk" value="0" max="100"> 32% </progress>
+                    </div>
+                    <div>
+                        <label for="">Defense</label>
+                        <progress id="progressDef" value="0" max="100"> 32% </progress>
+                    </div>
+                    <div>
+                        <label for="">Special Attack</label>
+                        <progress id="progressSpAtk" value="0" max="100"> 32% </progress>
+                    </div>
+                    <div>
+                        <label for="">Special Defense</label>
+                        <progress id="progressSplDef" value="0" max="100"> 32% </progress>
+                    </div>
+                    <div>
+                        <label for="">Speed</label>
+                        <progress id="progressSpeed" value="0" max="100"> 32% </progress>
+                    </div>
+                </div>
+                <div class="data">
+                    <div>
+                        <label for="">Height</label>
+                        <label for="">0.3m</label>
+
+                        <label for="">Weight</label>
+                        <label for="">10kg</label>
+                        
+                        <label for="">Gender</label>
+                        <label for=""></label>
+                        
+                        <label for="">Category</label>
+                        <label for="">Worm</label>
+                        
+                        <label for="">Abilities</label>
+                        <label for="">Shield Dust</label>
+                    </div>
+                </div>
+            </div>
+            <div class="boxCard">
+                <div class="card">
+                    
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 
 </html>
-<script src="js/index.js"></script>
-<script src="js/cards.js"></script>
+<script src="../js/datapoke.js"></script>
+<script>
+
+    function buildProgress(pokemon){
+        document.getElementById('txtId').innerText = pokemon.id;
+        document.getElementById('txtnome').innerText = pokemon.name;
+        document.getElementById('progressHp').value = pokemon.hp;
+        document.getElementById('progressAtk').value = pokemon.atk;
+        document.getElementById('progressDef').value = pokemon.def;
+        document.getElementById('progressSpAtk').value = pokemon.spAtk;
+        document.getElementById('progressSpDef').value = pokemon.spDef;
+        document.getElementById('progressSpeed').value = pokemon.speed;
+    }
+
+    let pokemon;
+    fetch(`https://pokeapi.co/api/v2/pokemon/2`)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data){
+        pokemon = new Pokemon(data.id,
+            data.name,
+            data.sprites.front_default,
+            data.height,
+            data.weight,
+            data.stats[5].base_stat,
+            data.stats[4].base_stat,
+            data.stats[3].base_stat,
+            data.stats[2].base_stat,
+            data.stats[1].base_stat,
+            data.stats[0].base_stat);
+
+            buildProgress(pokemon)
+        
+    })
+
+    
+</script>
+<script src="../js/index.js"></script>
+<script src="../js/jquery.js"></script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
