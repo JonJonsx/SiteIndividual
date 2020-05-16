@@ -60,7 +60,8 @@ const electric = () => ({
 
 const flying = () => ({
     backgroundColor: "#d1d8e0",
-    color: "#000 !important"
+    color: "#000 !important",
+    border: "1px solid #000 !important"
 })
 
 const ice = () => ({
@@ -99,7 +100,8 @@ const ghost = () => ({
 
 const steel = () => ({
     backgroundColor: "#aaa69d",
-    color: "#000 !important"
+    color: "#000 !important",
+    border: "1px solid #000 !important"
 })
 const water = () => ({
     backgroundColor: "#45aaf2",

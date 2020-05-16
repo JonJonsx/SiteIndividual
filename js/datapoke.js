@@ -11,7 +11,7 @@ class Pokemon {
         spAtk,
         spDef,
         speed,
-        type
+        types
     ) {
 
         this.id = id;
@@ -19,7 +19,7 @@ class Pokemon {
         this.image = image;
         this.height = height;
         this.weight = weight;
-        this.type = type;
+        this.types = types;
         this.hp = hp;
         this.atk = atk;
         this.def = def;

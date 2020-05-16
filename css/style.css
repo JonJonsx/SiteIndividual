@@ -104,9 +104,8 @@ body {
     width: 25%;
     height: 290px;
     margin: 20px auto;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0F2027;
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.5s;
@@ -120,7 +119,7 @@ body {
 }
 .boxCard .card .imgBox{
     border-radius: 15px 15px 50% 50%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #2d3436;
     height: 60%;
     width: 100%;
     transition: all 0.5s;
@@ -136,6 +135,7 @@ body {
 
 .boxCard .card .read{
     padding: 10px;
+    text-transform: capitalize;
 }
 .boxCard .card label{
     display: block;
@@ -145,10 +145,15 @@ body {
     font-size: 20px;
 }
 .boxCard .card .types{
-    display: inline;
-    width: 50%;
-    margin: 0 auto;
-    border: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.boxCard .card .type{
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
     padding: 3px;
     border-radius: 10px;
+    border: 1px solid #fff;
 }
