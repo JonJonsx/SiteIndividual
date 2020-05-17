@@ -88,12 +88,12 @@ const poison = () => ({
     color: "#fff !important"
 })
 const ground = () => ({
-    backgroundColor: "#fdcb6e",
+    backgroundColor: "#e0c068",
     color: "#fff !important"
 })
 
 const rock = () => ({
-    backgroundColor: "a27035",
+    backgroundColor: "#563c15",
     color: "#fff !important"
 })
 
