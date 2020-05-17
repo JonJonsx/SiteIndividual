@@ -4,6 +4,8 @@ const mixColor = (value) => {
             return electric()
         case "normal":
             return normal()
+        case "fighting":
+            return fighting()
         case "flying":
             return flying()
         case "ice":
@@ -62,6 +64,11 @@ const electric = () => ({
 
 const normal = () => ({
     backgroundColor: "#a8a878",
+    color: "#fff !important"
+})
+
+const fighting = () => ({
+    backgroundColor: "#c0392b",
     color: "#fff !important"
 })
 
