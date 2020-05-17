@@ -34,7 +34,9 @@ class Pokemon {
             return response.json();
         })
         .then(function(data) {
-            return data
+            return data;
+        }).catch(function(error){
+            console.log(`Erro:${error.message}`);
         })
     }
 }
