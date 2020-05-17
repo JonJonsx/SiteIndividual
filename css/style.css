@@ -5,9 +5,20 @@
 }
 
 body {
-    background: #36393e; 
+    background: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Baloo 2', cursive;
     color: #fff;
+}
+section .container{
+    position: relative;
+    border-radius: 20px;
+    top: 50px;
+    margin-bottom: 60px;
+    background: #36393e;
+    box-shadow: 5px 0px 10px rgba(45, 52, 54,0.5);
+    padding: 10px;
 }
 .container {
     display: flex;
@@ -66,6 +77,12 @@ body {
     text-decoration: none;
     padding: 25px 20px;
     color: #fff;
+}
+.container > .read{
+    text-align: center;
+}
+.container > .read{
+    font-size: 20px;
 }
 .read {
     width: 100%;

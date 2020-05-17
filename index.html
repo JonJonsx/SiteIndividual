@@ -27,16 +27,16 @@
             </nav>
         </div>
     </header>
-    <section class="container">
-        <div>
-            <h1>Seja bem vindo</h1>
-            <p></p>
-        </div>
-        <div class="divSearch">
-            <input type="text" id="search">
-        </div>
-        <div class="boxCard" id="boxCard">
-        </div>
+    <section>
+        <div class="container">
+            <div class="read">
+                <h1>Seja bem vindo</h1>
+            </div>
+            <div class="divSearch">
+                <input type="text" id="search">
+            </div>
+            <div class="boxCard" id="boxCard">
+            </div>
         </div>
     </section>
 </body>
@@ -74,4 +74,6 @@
     window.addEventListener('load', function () {
         datapoke();
     })
+    var nImage = parseInt(Math.random() * 2)+ 1;
+    document.getElementsByTagName('body')[0].style.backgroundImage = `url(./img/img${nImage}.png)`;
 </script>

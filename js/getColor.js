@@ -2,6 +2,8 @@ const mixColor = (value) => {
     switch (value) {
         case "electric":
             return electric()
+        case "normal":
+            return normal()
         case "flying":
             return flying()
         case "ice":
@@ -54,81 +56,86 @@ const mixColor = (value) => {
 }
 
 const electric = () => ({
-    backgroundColor: "#fed330",
+    backgroundColor: "#f1c40f",
+    color: "#fff !important"
+})
+
+const normal = () => ({
+    backgroundColor: "#a8a878",
     color: "#fff !important"
 })
 
 const flying = () => ({
-    backgroundColor: "#d1d8e0",
+    backgroundColor: "#a890f0",
     color: "#000 !important",
     border: "1px solid #000 !important"
 })
 
 const ice = () => ({
-    backgroundColor: "#2bcbba",
+    backgroundColor: "#81ecec",
     color: "#fff !important"
 })
 
 const poison = () => ({
-    backgroundColor: "#8854d0",
+    backgroundColor: "#9b59b6",
     color: "#fff !important"
 })
 const ground = () => ({
-    backgroundColor: "#cd6133",
+    backgroundColor: "#fdcb6e",
     color: "#fff !important"
 })
 
 const rock = () => ({
-    backgroundColor: "#84817a",
+    backgroundColor: "a27035",
     color: "#fff !important"
 })
 
 const bug = () => ({
-    backgroundColor: "#218c74",
+    backgroundColor: "#A3CB38",
     color: "#fff !important"
 })
 
 const fire = () => ({
-    backgroundColor: "#ff5252",
+    backgroundColor: "#F79F1F",
     color: "#fff !important"
 })
 
 const ghost = () => ({
-    backgroundColor: "#474787",
+    backgroundColor: "#341f97",
     color: "#fff !important"
 })
 
 const steel = () => ({
-    backgroundColor: "#aaa69d",
+    backgroundColor: "#8395a7",
     color: "#000 !important",
     border: "1px solid #000 !important"
 })
 const water = () => ({
-    backgroundColor: "#45aaf2",
+    backgroundColor: "#778beb",
     color: "#fff !important"
 })
 
 const grass = () => ({
-    backgroundColor: "#26de81",
+    backgroundColor: "#2ecc71",
     color: "#fff !important"
 })
 
 const psychic = () => ({
-    backgroundColor: "#f7b731",
+    backgroundColor: "#e84393",
     color: "#fff !important"
 })
 
 const dragon = () => ({
-    backgroundColor: "#fc5c65",
+    backgroundColor: "##6c5ce7",
     color: "#fff !important"
 })
 const dark = () => ({
-    backgroundColor: "#2c2c54",
+    backgroundColor: "#533e2d",
     color: "#fff !important"
 })
 
 const fairy = () => ({
-    backgroundColor: "#f7f1e3",
+    backgroundColor: "#f8a5c2",
     color: "#fff !important"
 })
 
