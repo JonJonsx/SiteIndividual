@@ -19,7 +19,7 @@
                     <label for="">Nº <span id="txtId"></span></label>
                 </div>
                 <div>
-                    <img src="" alt="">
+                    <img id="imgPoke" src="" alt="">
                 </div>
                 <div>
                     <label for="">Fire</label>
@@ -48,7 +48,7 @@
                     </div>
                     <div>
                         <label for="">Special Defense</label>
-                        <progress id="progressSplDef" value="0" max="100"> 32% </progress>
+                        <progress id="progressSpDef" value="0" max="100"> 32% </progress>
                     </div>
                     <div>
                         <label for="">Speed</label>
@@ -86,6 +86,7 @@
     import Pokemon from '../js/datapoke.js';
 
     function buildProgress(pokemon) {
+        document.getElementById('imgPoke').src = pokemon.image;
         document.getElementById('txtId').innerText = pokemon.id;
         document.getElementById('txtnome').innerText = pokemon.name;
         document.getElementById('progressHp').value = pokemon.hp;
@@ -94,6 +95,7 @@
         document.getElementById('progressSpAtk').value = pokemon.spAtk;
         document.getElementById('progressSpDef').value = pokemon.spDef;
         document.getElementById('progressSpeed').value = pokemon.speed;
+        // document.getElementById('progressSpeed').value = pokemon.speed;
     }
 
     
