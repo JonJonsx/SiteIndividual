@@ -1,0 +1,13 @@
+.pokeGeral{
+    display: flex;
+    height: 20%;
+    background-color: #1a1e1d;
+    border-radius: 10px;
+}
+.pokegeral div{
+    display: inline-block;
+    width: 100%;
+}
+.pokeGeral .image{
+    float: right;
+}

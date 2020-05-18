@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/datapoke.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <title>Site institucional individual</title>
@@ -14,16 +15,16 @@
     <section>
         <div class="container">
             <div class="pokeGeral">
-                <div>
+                <div class="names">
                     <label id="txtnome" for="">Nome</label>
                     <label for="">Nº <span id="txtId"></span></label>
                 </div>
-                <div>
-                    <img id="imgPoke" src="" alt="">
-                </div>
-                <div>
+                <div class="types">
                     <label for="">Fire</label>
                     <label for="">Leaf</label>
+                </div>
+                <div class="image">
+                    <img id="imgPoke" src="" alt="">
                 </div>
             </div>
 
@@ -76,7 +77,7 @@
             </div>
             <div class="boxCard">
             </div>
-            </div>
+        </div>
         </div>
     </section>
 </body>
@@ -97,7 +98,7 @@
         document.getElementById('progressSpeed').value = pokemon.speed;
     }
 
-    
+
     Pokemon.getPokemon(2).then(data => {
         const pokemon = new Pokemon(
             data.id,
