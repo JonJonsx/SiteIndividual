@@ -10,6 +10,7 @@ body {
     background-size: cover;
     font-family: 'Baloo 2', cursive;
     color: #fff;
+    background: #1a1a1a;
 }
 section .container{
     position: relative;
