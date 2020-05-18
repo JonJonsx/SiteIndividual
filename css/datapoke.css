@@ -1,28 +1,35 @@
+*{
+    --backgroundColor: #1a1e1d;
+}
+
 .pokeGeral{
+    height: 180px;
+    font-size: 20px;
+    background-color: var(--backgroundColor);
+}
+.dataPoke, .pokeGeral{
     display: flex;
     justify-content: space-between;
-    height: 180px;
-    background-color: #1a1e1d;
     border-radius: 10px;
-    font-size: 20px;
 }
 .pokeGeral .names{
     margin: 10px;
     width: 80%;
+    font-weight: 800;
 }
 .pokeGeral .names > div{
     display: flex;
     justify-content: space-between;
 }
-.pokeGeral .txtTypes label:nth-child(0){
-    margin-right: 10px;
+.pokeGeral .txtTypes{
+    display: flex;
+    align-items: flex-end;
 }
 .pokeGeral .txtTypes label{
     width: 100%;
     text-align: center;
     padding: 10px;
     background-color: none;
-    border: 1px solid black;
     border-radius: 10px;
 }
 .pokeGeral .image{
@@ -35,4 +42,64 @@
 .pokeGeral .image img{
     width: 100%;
     height: 180px;
+}
+
+.dataPoke > div{
+    margin-top: 10px;
+    width: 100%;
+    background-color: var(--backgroundColor);
+    border-radius: 10px;
+    padding: 10px;
+}
+.dataPoke .stats{
+    width: 69%;
+    display: inline-block;
+    text-align: right;
+}
+.dataPoke .stats progress{
+    width: 80%;
+    height: 20px;
+}
+.dataPoke .data{
+    width: 30%;
+}
+.dataPoke > div > h3{
+    text-align: center;
+}
+
+@media(max-width: 768px){
+    .container{
+        width: 100%;
+    }
+    .pokeGeral .image{
+        width: 30%;
+    }
+    .dataPoke{
+        flex-wrap: wrap;
+    }
+    .dataPoke > .stats, .dataPoke .data{
+        width: 100%;
+    }
+}
+@media(max-width: 768px){
+    .pokeGeral{
+        height: 80px;
+        font-size: 15px;
+    }
+    .pokeGeral .image{
+        width: 30%;
+    }
+    .pokeGeral .image img{
+        height: 80px;
+    }
+    .pokeGeral .txtTypes label{
+        width: 100%;
+        /* height: 20px; */
+        text-align: center;
+        padding: 5px;
+    }
+    .dataPoke .stats progress{
+        width: 64%;
+        height: 20px;
+    }
 }
