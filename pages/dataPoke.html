@@ -33,27 +33,27 @@
                     <h3>Stats</h3>
                     <div>
                         <label for="">HP</label>
-                        <progress id="progressHp" value="20" max="400"> 32% </progress>
+                        <progress id="progressHp" value="20" max="250"></progress>
                     </div>
                     <div>
                         <label for="">Attack</label>
-                        <progress id="progressAtk" value="0" max="100"> 32% </progress>
+                        <progress id="progressAtk" value="0" max="250"></progress>
                     </div>
                     <div>
                         <label for="">Defense</label>
-                        <progress id="progressDef" value="0" max="100"> 32% </progress>
+                        <progress id="progressDef" value="0" max="250"></progress>
                     </div>
                     <div>
                         <label for="">Special Attack</label>
-                        <progress id="progressSpAtk" value="0" max="100"> 32% </progress>
+                        <progress id="progressSpAtk" value="0" max="250"></progress>
                     </div>
                     <div>
                         <label for="">Special Defense</label>
-                        <progress id="progressSpDef" value="0" max="100"> 32% </progress>
+                        <progress id="progressSpDef" value="0" max="250"></progress>
                     </div>
                     <div>
                         <label for="">Speed</label>
-                        <progress id="progressSpeed" value="0" max="100"> 32% </progress>
+                        <progress id="progressSpeed" value="0" max="250"></progress>
                     </div>
                 </div>
                 <div class="data">
@@ -109,7 +109,7 @@
         ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:'+typeColor[1]+';">'+pokemon.types[1].type.name+'</label>' : ''}`;
     }
 
-    Pokemon.getPokemon(2).then(data => {
+    Pokemon.getPokemon(15).then(data => {
         const pokemon = new Pokemon(
             data.id,
             data.name,
