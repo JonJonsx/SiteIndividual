@@ -33,45 +33,55 @@
                     <h3>Stats</h3>
                     <div>
                         <label for="">HP</label>
-                        <progress id="progressHp" value="20" max="250"></progress>
+                        <progress id="progressHp" value="20" max="200"></progress>
                     </div>
                     <div>
                         <label for="">Attack</label>
-                        <progress id="progressAtk" value="0" max="250"></progress>
+                        <progress id="progressAtk" value="0" max="200"></progress>
                     </div>
                     <div>
                         <label for="">Defense</label>
-                        <progress id="progressDef" value="0" max="250"></progress>
+                        <progress id="progressDef" value="0" max="200"></progress>
                     </div>
                     <div>
                         <label for="">Special Attack</label>
-                        <progress id="progressSpAtk" value="0" max="250"></progress>
+                        <progress id="progressSpAtk" value="0" max="200"></progress>
                     </div>
                     <div>
                         <label for="">Special Defense</label>
-                        <progress id="progressSpDef" value="0" max="250"></progress>
+                        <progress id="progressSpDef" value="0" max="200"></progress>
                     </div>
                     <div>
                         <label for="">Speed</label>
-                        <progress id="progressSpeed" value="0" max="250"></progress>
+                        <progress id="progressSpeed" value="0" max="200"></progress>
                     </div>
                 </div>
                 <div class="data">
                     <div>
-                        <label for="">Height</label>
-                        <label for="">0.3m</label>
-
-                        <label for="">Weight</label>
-                        <label for="">10kg</label>
-
-                        <label for="">Gender</label>
-                        <label for=""></label>
-
-                        <label for="">Category</label>
-                        <label for="">Worm</label>
-
-                        <label for="">Abilities</label>
-                        <label for="">Shield Dust</label>
+                        <div>
+                            <div>
+                                <label for="">Height</label>
+                                <label for="">0.3m</label>
+                            </div>
+                            <div>
+                                <label for="">Weight</label>
+                                <label for="">10kg</label>
+                            </div>
+                            <div>
+                                <label for="">Gender</label>
+                                <label for=""></label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="">Category</label>
+                                <label for="">Worm</label>
+                            </div>
+                            <div>
+                                <label for="">Abilities</label>
+                                <label for="">Shield Dust</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,11 +115,11 @@
         document.getElementById('progressSpDef').value = pokemon.spDef;
         document.getElementById('progressSpeed').value = pokemon.speed;
         document.getElementById('txtTypes').innerHTML =
-        `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
-        ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:'+typeColor[1]+';">'+pokemon.types[1].type.name+'</label>' : ''}`;
+            `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
+        ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + pokemon.types[1].type.name + '</label>' : ''}`;
     }
 
-    Pokemon.getPokemon(15).then(data => {
+    Pokemon.getPokemon(1).then(data => {
         const pokemon = new Pokemon(
             data.id,
             data.name,
