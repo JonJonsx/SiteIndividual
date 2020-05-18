@@ -16,12 +16,12 @@
         <div class="container">
             <div class="pokeGeral">
                 <div class="names">
-                    <label id="txtnome" for="">Nome</label>
-                    <label for="">Nº <span id="txtId"></span></label>
-                </div>
-                <div class="types">
-                    <label for="">Fire</label>
-                    <label for="">Leaf</label>
+                    <div>
+                        <label id="txtnome" for="">Nome</label>
+                        <label for="">Nº <span id="txtId"></span></label>
+                    </div>
+                    <div class="txtTypes" id="txtTypes">
+                    </div>
                 </div>
                 <div class="image">
                     <img id="imgPoke" src="" alt="">
@@ -33,7 +33,7 @@
                     <h3>Stats</h3>
                     <div>
                         <label for="">HP</label>
-                        <progress id="progressHp" value="20" max="100"> 32% </progress>
+                        <progress id="progressHp" value="20" max="400"> 32% </progress>
                     </div>
                     <div>
                         <label for="">Attack</label>
@@ -83,10 +83,18 @@
 </body>
 
 </html>
+<script src="../js/index.js"></script>
+<script src="../js/jquery.js"></script>
+<script type="module" src="../js/cards.js"></script>
+<script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
 <script type="module">
     import Pokemon from '../js/datapoke.js';
+    import pickColor from '../js/getColor.js';
 
     function buildProgress(pokemon) {
+        var typeColor = pokemon.types.map(type => pickColor(type.type.name).backgroundColor);
+        var typeName = pokemon.types.map(type => pickColor(type.type.name).color);
+        var typeBorder = pokemon.types.map(type => pickColor(type.type.name).border);
         document.getElementById('imgPoke').src = pokemon.image;
         document.getElementById('txtId').innerText = pokemon.id;
         document.getElementById('txtnome').innerText = pokemon.name;
@@ -96,8 +104,10 @@
         document.getElementById('progressSpAtk').value = pokemon.spAtk;
         document.getElementById('progressSpDef').value = pokemon.spDef;
         document.getElementById('progressSpeed').value = pokemon.speed;
+        document.getElementById('txtTypes').innerHTML =
+        `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
+        ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:'+typeColor[1]+';">'+pokemon.types[1].type.name+'</label>' : ''}`;
     }
-
 
     Pokemon.getPokemon(2).then(data => {
         const pokemon = new Pokemon(
@@ -112,13 +122,10 @@
             data.stats[2].base_stat,
             data.stats[1].base_stat,
             data.stats[0].base_stat,
-            data.types[0].type.name
+            data.types
         );
         buildProgress(pokemon);
     });
 
 
 </script>
-<script src="../js/index.js"></script>
-<script src="../js/jquery.js"></script>
-<script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>

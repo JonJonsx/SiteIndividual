@@ -1,13 +1,38 @@
 .pokeGeral{
     display: flex;
-    height: 20%;
+    justify-content: space-between;
+    height: 180px;
     background-color: #1a1e1d;
     border-radius: 10px;
+    font-size: 20px;
 }
-.pokegeral div{
-    display: inline-block;
+.pokeGeral .names{
+    margin: 10px;
+    width: 80%;
+}
+.pokeGeral .names > div{
+    display: flex;
+    justify-content: space-between;
+}
+.pokeGeral .txtTypes label:nth-child(0){
+    margin-right: 10px;
+}
+.pokeGeral .txtTypes label{
     width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: none;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 .pokeGeral .image{
+    text-align: center;
+    width: 20%;
     float: right;
+    background-color: #fff;
+    border-radius: 50% 10px 10px 50%;
+}
+.pokeGeral .image img{
+    width: 100%;
+    height: 180px;
 }
