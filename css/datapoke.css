@@ -1,7 +1,18 @@
 *{
     --backgroundColor: #1a1e1d;
 }
-
+progress::-moz-progress-bar { 
+    background: var(--teste);
+    border-radius: 30px;
+}
+progress::-webkit-progress-value { 
+    background: blue; 
+    border-radius: 30px;
+}
+progress { 
+    background: blue;
+    border-radius: 30px;
+}
 .pokeGeral{
     height: 180px;
     font-size: 20px;
@@ -52,6 +63,13 @@
     display: inline-block;
     text-align: right;
 }
+progress::-webkit-progress-value,
+progress::-moz-progress-bar,
+progress::-webkit-progress-value,
+progress { 
+    background: blue;
+    border-radius: 50%;
+}
 .dataPoke .stats progress{
     width: 80%;
     height: 20px;
@@ -77,25 +95,4 @@
         width: 100%;
     }
 }
-@media(max-width: 768px){
-    .pokeGeral{
-        height: 80px;
-        font-size: 15px;
-    }
-    .pokeGeral .image{
-        width: 30%;
-    }
-    .pokeGeral .image img{
-        height: 80px;
-    }
-    .pokeGeral .txtTypes label{
-        width: 100%;
-        /* height: 20px; */
-        text-align: center;
-        padding: 5px;
-    }
-    .dataPoke .stats progress{
-        width: 64%;
-        height: 20px;
-    }
-}
+
