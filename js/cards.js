@@ -20,7 +20,6 @@ function buildCard(pokemon){
             <div>
         </div>
     </div>`;
-    
 }
 // ${data.types.length > 1 ? '<label class="types">'+data.types[1].type.name+'</label>' : ''}
 export default buildCard;

@@ -14,150 +14,81 @@
 <body>
     <section>
         <div class="container">
-            <div class="pokeGeral">
+            <div class="pokeGeral flexBox geral">
                 <div class="names">
-                    <div>
+                    <div  class="flexBox">
                         <label id="txtnome" for="">Nome</label>
                         <label for="">Nº <span id="txtId"></span></label>
                     </div>
-                    <div class="txtTypes" id="txtTypes">
+                    <div class="txtTypes flexBox" id="txtTypes">
                     </div>
                 </div>
-                <div class="image">
-                    <img id="imgPoke" src="" alt="">
+                <div class="image" class="flexBox">
+                    <img id="imgPoke" src="" alt="" class="geral">
                 </div>
             </div>
 
-            <div class="dataPoke">
-                <div class="stats">
+            <div class="dataPoke flexBox">
+                <div class="stats sm-data">
                     <h3>Stats</h3>
                     <div>
+                        <progress id="progressHp" value="0" max="200"></progress>
                         <label for="">HP</label>
-                        <progress id="progressHp" value="20" max="200"></progress>
                     </div>
                     <div>
-                        <label for="">Attack</label>
                         <progress id="progressAtk" value="0" max="200"></progress>
+                        <label for="">Attack</label>
                     </div>
                     <div>
-                        <label for="">Defense</label>
                         <progress id="progressDef" value="0" max="200"></progress>
+                        <label for="">Defense</label>
                     </div>
                     <div>
-                        <label for="">Special Attack</label>
                         <progress id="progressSpAtk" value="0" max="200"></progress>
+                        <label for="">Special Attack</label>
                     </div>
                     <div>
-                        <label for="">Special Defense</label>
                         <progress id="progressSpDef" value="0" max="200"></progress>
+                        <label for="">Special Defense</label>
                     </div>
                     <div>
-                        <label for="">Speed</label>
                         <progress id="progressSpeed" value="0" max="200"></progress>
+                        <label for="">Speed</label>
                     </div>
                 </div>
-                <div class="data">
-                    <div>
+                <div class="data flexBox sm-data">
+                    <div class="data1">
                         <div>
-                            <div>
-                                <label for="">Height</label>
-                                <label id="height" for="">0.3m</label>
-                            </div>
-                            <div>
-                                <label for="">Weight</label>
-                                <label id="weight" for="">10kg</label>
-                            </div>
-                            <div>
-                                <label for="">Gender</label>
-                                <label id="gender" for=""></label>
-                            </div>
+                            <label for="">Height</label>
+                            <label id="height" for="">0.3m</label>
                         </div>
                         <div>
-                            <div>
-                                <label for="">Category</label>
-                                <label id="category" for="">Worm</label>
-                            </div>
-                            <div>
-                                <label for="">Abilities</label>
-                                <div id="abilities"">
-                                </div>
+                            <label for="">Weight</label>
+                            <label id="weight" for="">10kg</label>
+                        </div>
+                        <div>
+                            <label for="">Gender</label>
+                            <label id="gender" for=""></label>
+                        </div>
+                    </div>
+                    <div class="data2">
+                        <div>
+                            <label for="">Category</label>
+                            <label id="category" for="">Worm</label>
+                        </div>
+                        <div>
+                            <label for="">Abilities</label>
+                            <div id="abilities">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" boxCard">
-                                </div>
-                            </div>
-                        </div>
     </section>
 </body>
 
 </html>
 <!-- <script src="../js/index.js"></script> -->
 <script type="module" src="../js/cards.js"></script>
+<script type="module" src="../js/datapoke.js"></script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
-<script type="module">
-    import Pokemon from '../js/Pokemon.js';
-    import pickColor from '../js/getColor.js';
-
-    function buildProgress(pokemon) {
-        var typeColor = pokemon.types.map(type => pickColor(type.type.name).backgroundColor);
-        var typeName = pokemon.types.map(type => pickColor(type.type.name).color);
-        var typeBorder = pokemon.types.map(type => pickColor(type.type.name).border);
-        var speed = pickColor(speed);
-
-        document.getElementById('imgPoke').src = pokemon.image;
-        document.getElementById('txtId').innerText = pokemon.id;
-        document.getElementById('txtnome').innerText = pokemon.name;
-        document.getElementById('progressHp').value = pokemon.hp;
-        document.getElementById('progressAtk').value = pokemon.atk;
-        document.getElementById('progressDef').value = pokemon.def;
-        document.getElementById('progressSpAtk').value = pokemon.spAtk;
-        document.getElementById('progressSpDef').value = pokemon.spDef;
-        document.getElementById('progressSpeed').value = pokemon.speed;
-        document.getElementById('txtTypes').innerHTML =
-            `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
-        ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + pokemon.types[1].type.name + '</label>' : ''}`;
-        document.getElementById('height').innerHTML = `${pokemon.alturaReal()} m`;
-        document.getElementById('weight').innerHTML = `${pokemon.pesoReal()} kg`;
-        document.getElementById('abilities').innerHTML =
-            `<label class="type">${pokemon.abilities[0].ability.name}</label>
-        ${pokemon.abilities.length > 1 ? '<label class="type">' + pokemon.abilities[1].ability.name + '</label>' : ''}
-        ${pokemon.abilities.length > 2 ? '<label class="type">' + pokemon.abilities[2].ability.name + '</label>' : ''}`
-    }
-    const returnId = () =>{
-        var query = location.search.slice(1);
-        var partes = query.split('&');
-        var poke = {};
-        partes.forEach(function (parte) {
-            var chaveValor = parte.split('=');
-            var chave = chaveValor[0];
-            var valor = chaveValor[1];
-            poke[chave] = valor;
-        });
-        return poke.id;
-    }
-    parseInt(returnId());
-
-    Pokemon.getPokemon(parseInt(returnId())).then(data => {
-        const pokemon = new Pokemon(
-            data.id,
-            data.name,
-            data.sprites.front_default,
-            data.height,
-            data.weight,
-            data.stats[5].base_stat,
-            data.stats[4].base_stat,
-            data.stats[3].base_stat,
-            data.stats[2].base_stat,
-            data.stats[1].base_stat,
-            data.stats[0].base_stat,
-            data.types,
-            data.abilities
-        );
-        buildProgress(pokemon);
-    });
-
-
-</script>
