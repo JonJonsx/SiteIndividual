@@ -86,10 +86,10 @@
                     </div>
                 </div>
             </div>
-            <div class="boxCard">
-            </div>
-        </div>
-        </div>
+            <div class=" boxCard">
+                                </div>
+                            </div>
+                        </div>
     </section>
 </body>
 
@@ -116,18 +116,31 @@
         document.getElementById('progressSpAtk').value = pokemon.spAtk;
         document.getElementById('progressSpDef').value = pokemon.spDef;
         document.getElementById('progressSpeed').value = pokemon.speed;
-        document.getElementById('txtTypes').innerHTML = 
-        `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
+        document.getElementById('txtTypes').innerHTML =
+            `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
         ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + pokemon.types[1].type.name + '</label>' : ''}`;
         document.getElementById('height').innerHTML = `${pokemon.alturaReal()} m`;
         document.getElementById('weight').innerHTML = `${pokemon.pesoReal()} kg`;
         document.getElementById('abilities').innerHTML =
-        `<label class="type">${pokemon.abilities[0].ability.name}</label>
-        ${pokemon.abilities.length > 1 ? '<label class="type">' + pokemon.abilities[1].ability.name + '</label>' : '' }
-        ${pokemon.abilities.length > 2 ? '<label class="type">' + pokemon.abilities[2].ability.name + '</label>' : '' }`
+            `<label class="type">${pokemon.abilities[0].ability.name}</label>
+        ${pokemon.abilities.length > 1 ? '<label class="type">' + pokemon.abilities[1].ability.name + '</label>' : ''}
+        ${pokemon.abilities.length > 2 ? '<label class="type">' + pokemon.abilities[2].ability.name + '</label>' : ''}`
     }
-    
-    Pokemon.getPokemon(id).then(data => {
+    const returnId = () =>{
+        var query = location.search.slice(1);
+        var partes = query.split('&');
+        var poke = {};
+        partes.forEach(function (parte) {
+            var chaveValor = parte.split('=');
+            var chave = chaveValor[0];
+            var valor = chaveValor[1];
+            poke[chave] = valor;
+        });
+        return poke.id;
+    }
+    parseInt(returnId());
+
+    Pokemon.getPokemon(parseInt(returnId())).then(data => {
         const pokemon = new Pokemon(
             data.id,
             data.name,
