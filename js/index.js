@@ -17,13 +17,13 @@ window.addEventListener('scroll', function () { // AQUI CHAMA A FUNÇÃO PELO SC
     animeScroll();
 });
 
-
+// BARRA DE PESQUISA
 var search = document.getElementById("txtSearch");
 var boxCard = document.getElementById("boxCard");
 search.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         clear();
-        fnGetPoke(e.target.value);
+        fnGetPoke(e.target.value.toLowerCase());
     } else if (e.target.value == '') {
         clear();
         datapoke();
