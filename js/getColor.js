@@ -133,7 +133,7 @@ const psychic = () => ({
 })
 
 const dragon = () => ({
-    backgroundColor: "##6c5ce7",
+    backgroundColor: "#6c5ce7",
     color: "#fff !important"
 })
 const dark = () => ({
