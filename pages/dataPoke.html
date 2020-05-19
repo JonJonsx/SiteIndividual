@@ -61,25 +61,26 @@
                         <div>
                             <div>
                                 <label for="">Height</label>
-                                <label for="">0.3m</label>
+                                <label id="height" for="">0.3m</label>
                             </div>
                             <div>
                                 <label for="">Weight</label>
-                                <label for="">10kg</label>
+                                <label id="weight" for="">10kg</label>
                             </div>
                             <div>
                                 <label for="">Gender</label>
-                                <label for=""></label>
+                                <label id="gender" for=""></label>
                             </div>
                         </div>
                         <div>
                             <div>
                                 <label for="">Category</label>
-                                <label for="">Worm</label>
+                                <label id="category" for="">Worm</label>
                             </div>
                             <div>
                                 <label for="">Abilities</label>
-                                <label for="">Shield Dust</label>
+                                <div id="abilities"">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,18 +94,19 @@
 </body>
 
 </html>
-<script src="../js/index.js"></script>
-<script src="../js/jquery.js"></script>
+<!-- <script src="../js/index.js"></script> -->
 <script type="module" src="../js/cards.js"></script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
 <script type="module">
-    import Pokemon from '../js/datapoke.js';
+    import Pokemon from '../js/Pokemon.js';
     import pickColor from '../js/getColor.js';
 
     function buildProgress(pokemon) {
         var typeColor = pokemon.types.map(type => pickColor(type.type.name).backgroundColor);
         var typeName = pokemon.types.map(type => pickColor(type.type.name).color);
         var typeBorder = pokemon.types.map(type => pickColor(type.type.name).border);
+        var speed = pickColor(speed);
+
         document.getElementById('imgPoke').src = pokemon.image;
         document.getElementById('txtId').innerText = pokemon.id;
         document.getElementById('txtnome').innerText = pokemon.name;
@@ -114,12 +116,18 @@
         document.getElementById('progressSpAtk').value = pokemon.spAtk;
         document.getElementById('progressSpDef').value = pokemon.spDef;
         document.getElementById('progressSpeed').value = pokemon.speed;
-        document.getElementById('txtTypes').innerHTML =
-            `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
+        document.getElementById('txtTypes').innerHTML = 
+        `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
         ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + pokemon.types[1].type.name + '</label>' : ''}`;
+        document.getElementById('height').innerHTML = `${pokemon.alturaReal()} m`;
+        document.getElementById('weight').innerHTML = `${pokemon.pesoReal()} kg`;
+        document.getElementById('abilities').innerHTML =
+        `<label class="type">${pokemon.abilities[0].ability.name}</label>
+        ${pokemon.abilities.length > 1 ? '<label class="type">' + pokemon.abilities[1].ability.name + '</label>' : '' }
+        ${pokemon.abilities.length > 2 ? '<label class="type">' + pokemon.abilities[2].ability.name + '</label>' : '' }`
     }
-
-    Pokemon.getPokemon(1).then(data => {
+    
+    Pokemon.getPokemon(id).then(data => {
         const pokemon = new Pokemon(
             data.id,
             data.name,
@@ -132,7 +140,8 @@
             data.stats[2].base_stat,
             data.stats[1].base_stat,
             data.stats[0].base_stat,
-            data.types
+            data.types,
+            data.abilities
         );
         buildProgress(pokemon);
     });
