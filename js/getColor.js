@@ -22,7 +22,7 @@ const mixColor = (value) => {
             return bug()
         case "ghost":
             return ghost()
-        case "stell":
+        case "steel":
             return steel()
         case "water":
             return water()
@@ -44,9 +44,9 @@ const mixColor = (value) => {
             return attack()
         case "defense":
             return defense()
-        case "special-attack":
+        case "specialAttack":
             return specialAttack()
-        case "special-defense":
+        case "specialDefense":
             return specialDefense()
         case "hp":
             return hp()
@@ -113,7 +113,7 @@ const ghost = () => ({
 })
 
 const steel = () => ({
-    backgroundColor: "#8395a7",
+    backgroundColor: "#95a5a6",
     color: "#000 !important",
     border: "1px solid #000 !important"
 })
