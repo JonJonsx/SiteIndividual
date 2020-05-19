@@ -5,9 +5,9 @@
 }
 
 body {
-    background: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
     font-family: 'Baloo 2', cursive;
     color: #fff;
     background: #1a1a1a;
