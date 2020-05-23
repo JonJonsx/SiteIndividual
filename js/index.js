@@ -13,27 +13,28 @@ function animeScroll() {
         target.style.bottom = `initial`;
     }
 }
+
 window.addEventListener('scroll', function () { // AQUI CHAMA A FUNÇÃO PELO SCROLL
     animeScroll();
 });
 
-// BARRA DE PESQUISA
-var search = document.getElementById("txtSearch");
-var boxCard = document.getElementById("boxCard");
-search.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        clear();
-        fnGetPoke(e.target.value.toLowerCase());
-    } else if (e.target.value == '') {
-        clear();
-        datapoke();
+window.addEventListener('load', () => {
+    datapoke();
+})
+
+
+const datapoke = () => {
+    const amountPoke = 20; // Quantidade de pokemon que vai aparecer na tela
+    for (var i = 1; i <= amountPoke; i++) {
+        const numero = i;
+        fnGetPoke(i);
     }
-});
-const clear = () => { boxCard.innerHTML = ''; }
+}
 
 function fnGetPoke(poke) {
     Pokemon.getPokemon(poke).then(data => {
-        const pokemon = new Pokemon(data.id,
+        const pokemon = new Pokemon(
+            data.id,
             data.name,
             data.sprites.front_default,
             data.height,
@@ -59,23 +60,26 @@ function fnGetPoke(poke) {
     });
 }
 
+// BARRA DE PESQUISA
+var search = document.getElementById("txtSearch");
+var boxCard = document.getElementById("boxCard");
+search.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+        clear();
+        fnGetPoke(e.target.value.toLowerCase());
+    } else if (e.target.value == '') {
+        clear();
+        datapoke();
+    }
+});
+const clear = () => { boxCard.innerHTML = ''; }
+
+
+
 function trocarPagina(id) {
-    location.href = `./pages/dataPoke.html?id=${+id}`;
+    location.href = `./pages/dataPoke.html?id=${id}`;
     console.log("trocando de pagina", id);
 }
-
-const amountPoke = 20; // Quantidade de pokemon que vai aparecer na tela
-const datapoke = () => {
-    for (var i = 1; i <= amountPoke; i++) {
-        const numero = i;
-
-        fnGetPoke(i);
-    }
-}
-
-window.addEventListener('load', () => {
-    datapoke();
-})
 
 var nImage = parseInt(Math.random() * 2) + 1;
 document.getElementsByTagName('body')[0].style.backgroundImage = `url(./img/img${nImage}.png)`;
