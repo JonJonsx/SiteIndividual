@@ -1,43 +1,6 @@
 import Pokemon from '../js/Pokemon.js';
 import pickColor from '../js/getColor.js';
 
-function buildProgress(pokemon) {
-    var typeColor = pokemon.types.map(type => pickColor(type.type.name).backgroundColor);
-    var typeName = pokemon.types.map(type => pickColor(type.type.name).color);
-    var life = pickColor('hp');
-    var attack = pickColor('attack');
-    var defense = pickColor('defense');
-    var spAttack = pickColor('specialAttack');
-    var spDefense = pickColor('specialDefense');
-    var speed = pickColor('speed');
-
-    var body = document.getElementsByTagName('body')[0];
-    body.style.setProperty('--hp', life),
-        body.style.setProperty('--attack', attack),
-        body.style.setProperty('--defense', defense),
-        body.style.setProperty('--spAtk', spAttack),
-        body.style.setProperty('--spDef', spDefense),
-        body.style.setProperty('--speed', speed);
-
-    document.getElementById('imgPoke').src = pokemon.image;
-    document.getElementById('txtId').innerText = pokemon.id;
-    document.getElementById('txtnome').innerText = pokemon.name;
-    document.getElementById('progressHp').value = pokemon.hp;
-    document.getElementById('progressAtk').value = pokemon.atk;
-    document.getElementById('progressDef').value = pokemon.def;
-    document.getElementById('progressSpAtk').value = pokemon.spAtk;
-    document.getElementById('progressSpDef').value = pokemon.spDef;
-    document.getElementById('progressSpeed').value = pokemon.speed;
-    document.getElementById('txtTypes').innerHTML =
-        `<label class="type" style="background-color:${typeColor[0]}">${pokemon.types[0].type.name}</label>
-        ${pokemon.types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + pokemon.types[1].type.name + '</label>' : ''}`;
-    document.getElementById('height').innerHTML = `${pokemon.alturaReal()} m`;
-    document.getElementById('weight').innerHTML = `${pokemon.pesoReal()} kg`;
-    document.getElementById('abilities').innerHTML =
-        `<label class="type">${pokemon.abilities[0].ability.name}</label>
-        ${pokemon.abilities.length > 1 ? '<label class="type">' + pokemon.abilities[1].ability.name + '</label>' : ''}
-        ${pokemon.abilities.length > 2 ? '<label class="type">' + pokemon.abilities[2].ability.name + '</label>' : ''}`
-}
 const returnId = () => {
     var query = location.search.slice(1);
     var partes = query.split('&');
@@ -51,6 +14,7 @@ const returnId = () => {
     return poke.id;
 }
 var idPoke = parseInt(returnId());
+
 
 Pokemon.getPokemon(idPoke).then(data => {
     const pokemon = new Pokemon(
@@ -68,5 +32,67 @@ Pokemon.getPokemon(idPoke).then(data => {
         data.types,
         data.abilities
     );
-    buildProgress(pokemon);
+    buildData(pokemon);
 });
+
+
+const color = pokemon => ({
+    hp: pickColor('hp'),
+    attack: pickColor('attack'),
+    defense: pickColor('defense'),
+    spAtk: pickColor('specialAttack'),
+    spDef: pickColor('specialDefense'),
+    speed: pickColor('speed')
+});
+
+function buildData(pokemon) {
+    // aqui eu pego o body
+    var body = document.getElementsByTagName('body')[0];
+
+    // Aplica o valor da cor na variavel, que se encontra no css datapoke.css
+    Object.entries(color(pokemon)).map(color => {
+        body.style.setProperty(`--${color[0]}`, color[1])
+    })
+    //Atribuindo cor referente ao tipo do pokemon
+    var typeColor = pokemon.types.map(type => pickColor(type.type.name).backgroundColor),
+        typeName = pokemon.types.map(type => pickColor(type.type.name).color);
+
+    const {
+        image,
+        id,
+        name,
+        hp,
+        atk,
+        def,
+        spAtk,
+        spDef,
+        speed,
+        types,
+        abilities,
+    } = pokemon;
+
+
+    $('#imgPoke').attr('src',image);
+    $('#txtId').attr('innerText' , id);
+    $('#txtnome').attr('innerText' , name);
+    
+    $('#progressHp').attr('value' , hp);
+    $('#progressAtk').attr('value' , atk);
+    $('#progressDef').attr('value' , def);
+    $('#progressSpAtk').attr('value' , spAtk);
+    $('#progressSpDef').attr('value' , spDef);
+    $('#progressSpeed').attr('value' , speed);
+
+
+    $('#height').html(`${pokemon.alturaReal()} m`);
+    $('#weight').html(`${pokemon.pesoReal()} kg`);
+    
+    $('#txtTypes').html(
+        `<label class="type" style="background-color:${typeColor[0]}">${types[0].type.name}</label>
+        ${types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + types[1].type.name + '</label>' : ''}`);
+
+    $('#abilities').html(
+        `<label class="type">${abilities[0].ability.name}</label>
+        ${abilities.length > 1 ? '<label class="type">' + abilities[1].ability.name + '</label>' : ''}
+        ${abilities.length > 2 ? '<label class="type">' + abilities[2].ability.name + '</label>' : ''}`);
+}
