@@ -14,7 +14,6 @@ class Pokemon {
         types,
         abilities
     ) {
-
         this.id = id;
         this.name = name;
         this.image = image;
@@ -31,7 +30,7 @@ class Pokemon {
     }
     
     alturaReal(){
-        return this.height / 100;
+        return this.height / 10;
     }
     
     pesoReal(){
