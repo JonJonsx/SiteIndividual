@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body>
@@ -14,21 +14,30 @@
             <div class="content">
                 <form action="" method="post">
                     <div>
-                        <input type="text" placeholder="Email ou Login">
+                        <input type="text" placeholder="Nome completo" id="txtName">
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Nome de usuario" id="txtUsuario">
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email" id="txtEmail">
                         <i class="fas fa-envelope icon"></i>
                     </div>
                     <div>
-                        <input type="password" placeholder="Senha">
+                        <input type="password" placeholder="Senha" id="txtPass">
                         <i class="fas fa-lock icon"></i>
                     </div>
-                    <div class="text-link">
-                        <a href="./forgotPassword.html">Esqueci minha senha</a>
+                    <div>
+                        <input type="password" placeholder="Confirma Senha" id="txtConfimPass">
+                        <i class="fas fa-lock icon"></i>
                     </div>
                     <button type="button" class="btn-login">Login</button>
                 </form>
                 <div class="link-register">
-                    <label>Não possui cadastro?</label>
-                    <a href="./register.html">Registre-se</a>
+                    <label>Ja possui cadastro?</label>
+                    <a href="./login.html">Logar-se</a>
                 </div>
             </div>
         </div>

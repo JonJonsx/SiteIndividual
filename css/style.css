@@ -29,22 +29,6 @@ section .container {
     margin: 0 auto;
     width: 75%;
 }
-@media(max-width: 736px){
-    .container{
-        width: 95%;
-    }
-    .boxCard .card{
-        max-width: 90%;
-        min-height: 400px;
-    }
-}
-@media(min-width: 736px){
-    .boxCard .card{
-        max-width: 230px;
-        min-height: 200px;
-    }
-}
-
 .header {
     position: fixed;
     background-color: rgba(45, 52, 54,0.9);
@@ -123,7 +107,7 @@ section .container {
     flex: 1 1 250px; /* primeiro valor 1 expansao, 1 que pode ficar menor,  200px a base , se ele não poder ter 200px ele quebra */
     width: 25%;
     height: 290px;
-    margin: 20px auto;
+    margin: 10px auto;
     background: #0F2027;
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
     border-radius: 15px;
@@ -153,27 +137,42 @@ section .container {
     color: #c0392b;
 }
 
-.boxCard .card .read{
+.card .read{
     padding: 10px;
     text-transform: capitalize;
 }
-.boxCard .card label{
+.card label{
     display: block;
     box-sizing: border-box;
 }
-.boxCard .card .namePoke{
+.card .namePoke{
     font-size: 20px;
 }
-.boxCard .card .types{
+.card .types{
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-.boxCard .card .type{
+.card .type{
     font-weight: 600;
     text-align: center;
     width: 100%;
     padding: 3px;
     border-radius: 10px;
     border: 1px solid #fff;
+}
+@media(max-width: 736px){
+    .container{
+        width: 95%;
+    }
+    .boxCard .card{
+        max-width: 90%;
+        min-height: 400px;
+    }
+}
+@media(min-width: 736px){
+    .boxCard .card{
+        max-width: 230px;
+        min-height: 200px;
+    }
 }
