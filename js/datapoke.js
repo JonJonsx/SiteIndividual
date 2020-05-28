@@ -71,10 +71,9 @@ function buildData(pokemon) {
         abilities,
     } = pokemon;
 
-
     $('#imgPoke').attr('src',image);
-    $('#txtId').attr('innerText' , id);
-    $('#txtnome').attr('innerText' , name);
+    $('#txtId').html(id);
+    $('#txtnome').html(name);
     
     $('#progressHp').attr('value' , hp);
     $('#progressAtk').attr('value' , atk);
