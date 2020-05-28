@@ -162,7 +162,7 @@ section .container {
     border: 1px solid #fff;
 }
 @media(max-width: 736px){
-    .container{
+    .section .container{
         width: 95%;
     }
     .boxCard .card{
