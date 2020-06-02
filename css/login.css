@@ -42,6 +42,9 @@ form{
     position: relative;
 }
 
+.icon::after{
+    color:red;
+}
 form input{
     position: relative;
     display: block;
@@ -73,11 +76,7 @@ form input:focus{
     color: #fff;
     font-weight: bold;
 }
-form .icone{
-    color: black;
-    position: absolute;
-    z-index: 200;
-}
+
 .content a{
     text-decoration: none;
     color: #fff;
