@@ -83,3 +83,7 @@ function trocarPagina(id) {
 
 var nImage = parseInt(Math.random() * 2) + 1;
 document.getElementsByTagName('body')[0].style.backgroundImage = `url(./img/img${nImage}.png)`;
+
+function trocaColor(){
+    document.getElementsByClassName('icon')[0].style.color = "red!important";
+}

@@ -36,7 +36,6 @@ class Pokemon {
     pesoReal(){
         return this.weight / 10;
     }
-    
     static getPokemon(id){
         return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(function(response) {

@@ -14,24 +14,24 @@
             <div class="content">
                 <form action="" method="post">
                     <div>
-                        <input type="text" placeholder="Nome completo" id="txtName">
+                        <input onclick="trocaColor()" type="text" placeholder="Nome completo" id="txtName">
+                        <i class="fas fa-user icon" ></i>
+                    </div>
+                    <div>
+                        <input onclick="trocaColor()" type="text" placeholder="Nome de usuario" id="txtUsuario">
                         <i class="fas fa-user icon"></i>
                     </div>
                     <div>
-                        <input type="text" placeholder="Nome de usuario" id="txtUsuario">
-                        <i class="fas fa-user icon"></i>
-                    </div>
-                    <div>
-                        <input type="email" placeholder="Email" id="txtEmail">
+                        <input onclick="trocaColor()" type="email" placeholder="Email" id="txtEmail">
                         <i class="fas fa-envelope icon"></i>
                     </div>
                     <div>
-                        <input type="password" placeholder="Senha" id="txtPass">
-                        <i class="fas fa-lock icon"></i>
+                        <input onclick="trocaColor()" type="password" placeholder="Senha" id="txtPass">
+                        <i class="fas fa-lock icon" ></i>
                     </div>
                     <div>
-                        <input type="password" placeholder="Confirma Senha" id="txtConfimPass">
-                        <i class="fas fa-lock icon"></i>
+                        <input onclick="trocaColor()" type="password" placeholder="Confirma Senha" id="txtConfimPass">
+                        <i class="fas fa-lock icon" ></i>
                     </div>
                     <button type="button" class="btn-login">Login</button>
                 </form>
@@ -46,3 +46,4 @@
 
 </html>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
+<script type="module" src="../js/index.js"></script>

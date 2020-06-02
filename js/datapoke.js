@@ -71,9 +71,9 @@ function buildData(pokemon) {
         abilities,
     } = pokemon;
 
-    $('#imgPoke').attr('src',image);
     $('#txtId').html(id);
     $('#txtnome').html(name);
+    $('#imgPoke').attr('src',image);
     
     $('#progressHp').attr('value' , hp);
     $('#progressAtk').attr('value' , atk);
@@ -81,7 +81,6 @@ function buildData(pokemon) {
     $('#progressSpAtk').attr('value' , spAtk);
     $('#progressSpDef').attr('value' , spDef);
     $('#progressSpeed').attr('value' , speed);
-
 
     $('#height').html(`${pokemon.alturaReal()} m`);
     $('#weight').html(`${pokemon.pesoReal()} kg`);
