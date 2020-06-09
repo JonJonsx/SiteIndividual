@@ -1,5 +1,6 @@
 import Pokemon from '../js/Pokemon.js';
 import pickColor from '../js/getColor.js';
+import buildCard from '../js/cards.js';
 
 const returnId = () => {
     var query = location.search.slice(1);
@@ -30,10 +31,11 @@ Pokemon.getPokemon(idPoke).then(data => {
         data.stats[1].base_stat,
         data.stats[0].base_stat,
         data.types,
-        data.abilities
+        data.abilities,
     );
     buildData(pokemon);
 });
+
 
 
 const color = pokemon => ({
@@ -73,18 +75,18 @@ function buildData(pokemon) {
 
     $('#txtId').html(id);
     $('#txtnome').html(name);
-    $('#imgPoke').attr('src',image);
-    
-    $('#progressHp').attr('value' , hp);
-    $('#progressAtk').attr('value' , atk);
-    $('#progressDef').attr('value' , def);
-    $('#progressSpAtk').attr('value' , spAtk);
-    $('#progressSpDef').attr('value' , spDef);
-    $('#progressSpeed').attr('value' , speed);
+    $('#imgPoke').attr('src', image);
+
+    $('#progressHp').attr('value', hp);
+    $('#progressAtk').attr('value', atk);
+    $('#progressDef').attr('value', def);
+    $('#progressSpAtk').attr('value', spAtk);
+    $('#progressSpDef').attr('value', spDef);
+    $('#progressSpeed').attr('value', speed);
 
     $('#height').html(`${pokemon.alturaReal()} m`);
     $('#weight').html(`${pokemon.pesoReal()} kg`);
-    
+
     $('#txtTypes').html(
         `<label class="type" style="background-color:${typeColor[0]}">${types[0].type.name}</label>
         ${types.length > 1 ? '<label class="type" style="color:;background-color:' + typeColor[1] + ';">' + types[1].type.name + '</label>' : ''}`);
@@ -93,4 +95,8 @@ function buildData(pokemon) {
         `<label class="type">${abilities[0].ability.name}</label>
         ${abilities.length > 1 ? '<label class="type">' + abilities[1].ability.name + '</label>' : ''}
         ${abilities.length > 2 ? '<label class="type">' + abilities[2].ability.name + '</label>' : ''}`);
+    
+    Pokemon.getEvolution(id).then(data => {
+        buildCard(species.species.name)
+    });
 }
