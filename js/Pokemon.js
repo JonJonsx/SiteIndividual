@@ -12,7 +12,7 @@ class Pokemon {
         spDef,
         speed,
         types,
-        abilities
+        abilities,
     ) {
         this.id = id;
         this.name = name;
@@ -28,24 +28,24 @@ class Pokemon {
         this.types = types;
         this.abilities = abilities;
     }
-    
-    alturaReal(){
+
+    alturaReal() {
         return this.height / 10;
     }
-    
-    pesoReal(){
+
+    pesoReal() {
         return this.weight / 10;
     }
-    static getPokemon(id){
+    static getPokemon(id) {
         return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            return data;
-        }).catch(function(error){
-            console.log(`Erro:${error.message}`);
-        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                return data;
+            }).catch(function (error) {
+                console.log(`Erro:${error.message}`);
+            })
     }
 }
 
