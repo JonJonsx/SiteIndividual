@@ -25,46 +25,6 @@ section .container {
     box-shadow: 5px 0px 10px rgba(39, 46, 48, 0.5);
     background: #363e3d;
 }
-.container{
-    margin: 0 auto;
-    width: 75%;
-}
-.header {
-    position: fixed;
-    background-color: rgba(45, 52, 54,0.9);
-    width: 100%;
-    bottom: 0;
-    z-index: 100;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.titulo {
-    color: white;
-    margin: auto;
-}
-.menu li {
-    position: relative;
-    list-style: none;
-    display: inline-block;
-    padding: 24px 0;
-    color: #fff;
-}
-
-.menu li:hover {
-    background-color: rgba(99, 110, 114,0.5);
-}
-
-
-.menu li a {
-    text-decoration: none;
-    padding: 25px 20px;
-    color: #fff;
-}
 .container > .read{
     text-align: center;
 }
