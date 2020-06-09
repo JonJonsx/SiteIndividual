@@ -4,6 +4,7 @@
     padding: 0;
 }
 body{
+    color: #fff;
     background-color: #0b0b0b;
     font-family: serif,Helvetica, sans-serif;
 }
@@ -11,6 +12,7 @@ section{
     width: 100%;
     height: 100vh;
 }
+
 .section-form,
 .section-form .container{
     display: flex;
@@ -23,7 +25,7 @@ section{
 .section-form .content{
     background-color: #363e3d;
     width: 32%;
-    height: auto;
+    /* height: auto; */
     min-width: 300px;
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +33,9 @@ section{
     justify-content: center;
     padding: 10px;
     border-radius: 10px;
+}
+.section-contact .content{
+    min-width: 40%;
 }
 form{
     /* background-color: darkorange; */
@@ -46,13 +51,15 @@ form{
     color:red;
 }
 form input{
+    height: 50px;
+}
+form input, form textarea{
     position: relative;
     display: block;
     padding-left: 35px;
     background-color: transparent;
     color: #fff;
     font-size: 14px;
-    height: 50px;
     width: 100%;
     border-radius: 10px;
     border: solid 2px black;
@@ -64,7 +71,7 @@ form input:focus{
 .content form .text-link{
     margin: 0 4px 10px;
 }
-.btn-login{
+.btn{
     width: 100%;
     height: 50px;
     font-size: 15px;
@@ -87,6 +94,9 @@ form input:focus{
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+    }
+    .section-contact .content{
+        min-width: 90%;
     }
 }
 @media (max-width : 780px){
