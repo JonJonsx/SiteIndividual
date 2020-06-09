@@ -14,17 +14,17 @@
             <div class="content">
                 <form action="" method="post">
                     <div>
-                        <input type="text" placeholder="Email ou Login">
+                        <input onfocus="trocaColor(0)"type="text" placeholder="Email ou Login">
                         <i class="fas fa-envelope icon"></i>
                     </div>
                     <div>
-                        <input type="password" placeholder="Senha">
+                        <input onfocus="trocaColor(1)"type="password" placeholder="Senha">
                         <i class="fas fa-lock icon"></i>
                     </div>
                     <div class="text-link">
                         <a href="./forgotPassword.html">Esqueci minha senha</a>
                     </div>
-                    <button type="button" class="btn-login">Login</button>
+                    <button type="button" class="btn">Login</button>
                 </form>
                 <div class="link-register">
                     <label>Não possui cadastro?</label>
@@ -37,3 +37,9 @@
 
 </html>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
+<script>
+    function trocaColor(posicao) {
+        var Icon = document.getElementsByClassName('icon')[posicao];
+        Icon.style.color = "#6c5ce7";
+    }
+</script>

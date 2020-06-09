@@ -14,26 +14,26 @@
             <div class="content">
                 <form action="" method="post">
                     <div>
-                        <input onclick="trocaColor()" type="text" placeholder="Nome completo" id="txtName">
-                        <i class="fas fa-user icon" ></i>
-                    </div>
-                    <div>
-                        <input onclick="trocaColor()" type="text" placeholder="Nome de usuario" id="txtUsuario">
+                        <input onfocus="trocaColor(0)" type="text" placeholder="Nome completo" id="txtName">
                         <i class="fas fa-user icon"></i>
                     </div>
                     <div>
-                        <input onclick="trocaColor()" type="email" placeholder="Email" id="txtEmail">
+                        <input onfocus="trocaColor(1)" type="text" placeholder="Nome de usuario" id="txtUsuario">
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(2)" type="email" placeholder="Email" id="txtEmail">
                         <i class="fas fa-envelope icon"></i>
                     </div>
                     <div>
-                        <input onclick="trocaColor()" type="password" placeholder="Senha" id="txtPass">
-                        <i class="fas fa-lock icon" ></i>
+                        <input onfocus="trocaColor(3)" type="password" placeholder="Senha" id="txtPass">
+                        <i class="fas fa-lock icon"></i>
                     </div>
                     <div>
-                        <input onclick="trocaColor()" type="password" placeholder="Confirma Senha" id="txtConfimPass">
-                        <i class="fas fa-lock icon" ></i>
+                        <input onfocus="trocaColor(4)" type="password" placeholder="Confirma Senha" id="txtConfimPass">
+                        <i class="fas fa-lock icon"></i>
                     </div>
-                    <button type="button" class="btn-login">Registrar</button>
+                    <button type="button" class="btn">Registrar</button>
                 </form>
                 <div class="link-register">
                     <label>Ja possui cadastro?</label>
@@ -46,4 +46,9 @@
 
 </html>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
-<script type="module" src="../js/index.js"></script>
+<script>
+    function trocaColor(posicao) {
+        var Icon = document.getElementsByClassName('icon')[posicao];
+        Icon.style.color = "#6c5ce7";
+    }
+</script>
