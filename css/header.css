@@ -27,14 +27,28 @@
     padding: 24px 0;
     color: #fff;
 }
-
 .menu li:hover {
     background-color: rgba(99, 110, 114,0.5);
 }
-
-
 .menu li a {
     text-decoration: none;
     padding: 25px 20px;
     color: #fff;
+}
+.loading{
+    z-index: 200;
+    position: absolute;
+    width: 100%;
+    background-color: #2b3133;
+    transition: all 0.5s;
+}
+.lottieLoading{
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100vh !important;
+}
+@media (max-width: 780px){
+    .header {
+        height: 40px;
+    }
 }

@@ -25,7 +25,6 @@ section{
 .section-form .content{
     background-color: #363e3d;
     width: 32%;
-    /* height: auto; */
     min-width: 300px;
     display: flex;
     flex-wrap: wrap;
@@ -53,10 +52,13 @@ form{
 form input{
     height: 50px;
 }
+form textarea{
+    margin-bottom: 10px;
+}
 form input, form textarea{
     position: relative;
     display: block;
-    padding-left: 35px;
+    padding: 0 35px;
     background-color: transparent;
     color: #fff;
     font-size: 14px;
@@ -106,12 +108,23 @@ form input:focus{
     }
     .section-form .content{
         width: 70%;
-        height: 400px;
+        min-height: 400px;
     }
 }
 @media (max-width : 450px){
     .section-form .content{
         width: 100%;
-        height: 300px;
     }
+}
+.loading{
+    z-index: 200;
+    position: absolute;
+    width: 100%;
+    background-color: #2b3133;
+    transition: all 0.5s;
+}
+.lottieLoading{
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100vh !important;
 }
