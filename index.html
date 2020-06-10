@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div class="loading">
+        <lottie-player src="https://assets7.lottiefiles.com/temp/lf20_Tw0dyZ.json" background="transparent" speed="1"
+            style="width: 300px; height: 300px;" class="lottieLoading" loop autoplay></lottie-player>
+    </div>
     <header class="header container" id="header">
         <div class="container">
             <div>
@@ -28,7 +32,7 @@
             </nav>
         </div>
     </header>
-    
+
     <section class="section">
         <div class="container">
             <div class="read">
@@ -44,5 +48,15 @@
 </body>
 
 </html>
+<script>
+    window.addEventListener('load', function(){
+        setTimeout(() => {
+            const loader = document.querySelector('.loading');
+            loader.style.display = "none";
+        }, 500);
+    })
+</script>
 <script type="module" src="./js/index.js"></script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
+<script src="./js/loader.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

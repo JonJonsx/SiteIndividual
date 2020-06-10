@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div class="loading">
+        <lottie-player src="https://assets7.lottiefiles.com/temp/lf20_Tw0dyZ.json" background="transparent" speed="1"
+            style="width: 300px; height: 300px;" class="lottieLoading" loop autoplay></lottie-player>
+    </div>
     <header class="header container" id="header">
         <div class="container">
             <div>
@@ -33,20 +37,20 @@
             <div class="content">
                 <form action="" method="post">
                     <div>
-                        <label for="">Nome</label>
-                        <input type="text" placeholder="">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" placeholder="Nome">
                     </div>
                     <div>
-                        <label for="">Email</label>
-                        <input type="password" placeholder="Senha">
+                        <label for="txtEmail">Email</label>
+                        <input type="email" placeholder="exemplo@email.com" id="txtEmail">
                     </div>
                     <div class="text-link">
-                        <label for="">Assunto</label>
-                        <input type="text" name="" id="">
+                        <label for="txtAssunto">Assunto</label>
+                        <input type="text" name="" placeholder="Assunto" id="txtAssunto">
                     </div>
                     <div>
-                        <label for="">Assunto</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>  
+                        <label for="txtMensagem">Mesangem</label>
+                        <textarea name="" id="" cols="30" rows="10" id="txtMensagem"></textarea>
                     </div>
                     <button type="button" class="btn">Enviar</button>
                 </form>
@@ -59,3 +63,22 @@
 
 </html>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
+<script>
+    var nav = document.getElementsByTagName('nav')[0]
+    if (screen.width <= 780) {
+        nav.innerHTML = '<a onclick="closeOpen">☰</a>'
+    }
+    function closeOpen() {
+        nav.innerHTML = `
+            < ul class="menu" >
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./about.html">Sobre</a></li>
+                <li><a href="./contact.html">Contato</a></li>
+                <li class="submenu"><a href="./login.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </li>
+            </ul >`;
+    }
+    
+</script>
+<script src="../js/loader.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
