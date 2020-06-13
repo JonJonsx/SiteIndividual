@@ -108,7 +108,7 @@ form input:focus{
     }
     .section-form .content{
         width: 70%;
-        min-height: 400px;
+        min-height: 150px;
     }
 }
 @media (max-width : 450px){
