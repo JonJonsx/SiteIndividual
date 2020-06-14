@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,8 +6,8 @@
 }
 body{
     color: #fff;
-    background-color: #0b0b0b;
-    font-family: serif,Helvetica, sans-serif;
+    background-color: #2a3032;
+    font-family: 'Baloo 2', cursive;
 }
 section{
     width: 100%;
