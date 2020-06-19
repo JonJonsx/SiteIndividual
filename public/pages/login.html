@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/form.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="loading">
+        <lottie-player src="https://assets7.lottiefiles.com/temp/lf20_Tw0dyZ.json" background="transparent" speed="1" class="lottieLoading" loop autoplay></lottie-player>
+    </div>
+    <section class="section-form">
+        <div class="container">
+            
+            <div class="content">
+                <form id="form_login" method="post" onsubmit="return entrar()">
+                    <div>
+                        <input onfocus="trocaColor(0)"type="text" placeholder="Email ou Login" name="login">
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(1)"type="password" placeholder="Senha" name="senha">
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <div class="text-link">
+                        <a href="./forgotPassword.html">Esqueci minha senha</a>
+                    </div>
+                    <button class="btn" id="btn_entrar">Login</button>
+                </form>
+                <div class="link-register">
+                    <label>Não possui cadastro?</label>
+                    <a href="./register.html">Registre-se</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
+<script>
+    function trocaColor(posicao) {
+        var Icon = document.getElementsByClassName('icon')[posicao];
+        Icon.style.color = "#6c5ce7";
+    }
+    
+    function entrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+            
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.nome;
+                    
+                    window.location.href = 'profile.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                response.text().then(texto => {
+                    console.error(texto);
+                    // finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+</script>
+<script src="../js/loader.js"></script>
+<script src="../js/login.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

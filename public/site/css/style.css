@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+body {
+    background-attachment: fixed !important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    font-family: 'Baloo 2', cursive;
+    color: #fff;
+    background: rgba(42,48,50,0.9);
+}
+.section .container{
+    position: relative;
+    top: 50px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 5px 0px 10px rgba(39, 46, 48, 0.5);
+    background: #363e3d;
+}
+.container > .read{
+    text-align: center;
+}
+.container > .read{
+    font-size: 20px;
+}
+.read {
+    width: 100%;
+    text-align: justify;
+    font-size: 15px;
+}
+.divSearch{
+    width: 100%;
+    display: flex;
+}
+.divSearch .txtSearch{
+    margin: 0 auto 10px;
+    width: 49%;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid #0d001c;
+    outline: none;
+    font-size: 20px;
+    padding: 0 10px;
+    transition: all 1s;
+}
+.divSearch .txtSearch:focus{
+    border: 2px solid #2b015c;
+    width: 100%;
+}
+
+/* Cards  */
+.boxCard{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.boxCard .card{
+    text-align: center;
+    flex: 1 1 250px; /* primeiro valor 1 expansao, 1 que pode ficar menor,  200px a base , se ele não poder ter 200px ele quebra */
+    width: 25%;
+    height: 290px;
+    margin: 10px auto;
+    background: #0F2027;
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.boxCard .card:hover{
+    transform: scale(1.1);
+}
+.boxCard .card img{
+    width: 80%;
+    height: 100%;
+}
+.boxCard .card .imgBox{
+    border-radius: 15px 15px 50% 50%;
+    background-color: #2d3436;
+    height: 60%;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+}
+.card > .imgBox > .fa-heart{
+    position: absolute;
+    top: 5px;
+}
+.card > .imgBox > .fa-heart:hover{
+    color: #c0392b;
+}
+
+.card .read{
+    padding: 10px;
+    text-transform: capitalize;
+}
+.card label{
+    display: block;
+    box-sizing: border-box;
+}
+.card .namePoke{
+    font-size: 20px;
+}
+.card .types{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.card .type{
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+}
+@media(max-width: 980px){
+    .about .container div{
+        width: 100%;
+    }
+}
+@media(max-width: 736px){
+    section .container{
+        width: 95%;
+    }
+    .boxCard .card{
+        max-width: 90%;
+        min-height: 400px;
+    }
+}
+@media(min-width: 736px){
+    .boxCard .card{
+        max-width: 230px;
+        min-height: 200px;
+    }
+}
+.loading{
+    z-index: 200;
+    position: absolute;
+    width: 100%;
+    background-color: #2b3133;
+    transition: all 0.5s;
+}
+.lottieLoading{
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100vh !important;
+}
+
+.about .container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.about .container div{
+    margin: 5px;
+    border-radius: 10px;
+    height: 300px;
+    text-align: center;
+    background-color: REd;
+    padding: 10px;
+}
+.minContainer{
+    width: 49%;
+}
+.maxContainer{
+    width: 100%;
+}
