@@ -48,7 +48,6 @@
     }
     
     function entrar() {
-        // aguardar();
         var formulario = new URLSearchParams(new FormData(form_login));
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -61,7 +60,7 @@
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
                     
-                    window.location.href = 'profile.html';
+                    window.location.href = './profile.html';
                 });
 
             } else {
@@ -70,7 +69,6 @@
 
                 response.text().then(texto => {
                     console.error(texto);
-                    // finalizar_aguardar(texto);
                 });
             }
         });
