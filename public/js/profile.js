@@ -73,7 +73,7 @@ const clear = () => { boxCard.innerHTML = ''; }
 
 
 function trocarPagina(id) {
-    location.href = `./pages/dataPoke.html?id=${id}`;
+    location.href = `./dataPoke.html?id=${id}`;
     console.log("trocando de pagina", id);
 }
 

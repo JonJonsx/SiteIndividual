@@ -1,4 +1,15 @@
-.cards{
-    background-color: blue !important;
-    width: 80%;
+.box-profile{
+    /* background-color: #3e4446 !important; */
+    width: 100%;
+    display: flex;
+    background-color: rgba(44,50,52,1);
+}
+.sadBar{
+    width: 20%;
+}
+.sadBar li{
+    list-style: none;
+}
+.dataUser h1{
+    display: inline-block;
 }

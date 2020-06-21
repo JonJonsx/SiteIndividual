@@ -80,6 +80,7 @@ router.get('/sessao/:login', function(req, res, next) {
 /* Logoff de usuário */
 router.get('/sair/:login', function(req, res, next) {
 	let login = req.params.login;
+	console.log(login);
 	console.log(`Finalizando a sessão do usuário ${login}`);
 	let nova_sessoes = []
 	for (let u=0; u<sessoes.length; u++) {
