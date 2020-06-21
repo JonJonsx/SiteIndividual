@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/form.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="loading">
+        <lottie-player src="https://assets7.lottiefiles.com/temp/lf20_Tw0dyZ.json" background="transparent" speed="1"
+            style="width: 300px; height: 300px;" class="lottieLoading" loop autoplay></lottie-player>
+    </div>
+    <section class="section-form">
+        <div class="container">
+            <div class="content">
+                <form action="" method="post">
+                    <div>
+                        <input onfocus="trocaColor(0)" type="text" placeholder="Nome completo" id="txtName">
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(1)" type="text" placeholder="Nome de usuario" id="txtUsuario">
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(2)" type="email" placeholder="Email" id="txtEmail">
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(3)" type="password" placeholder="Senha" id="txtPass">
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <div>
+                        <input onfocus="trocaColor(4)" type="password" placeholder="Confirma Senha" id="txtConfimPass">
+                        <i class="fas fa-lock icon"></i>
+                    </div>
+                    <button type="button" class="btn">Registrar</button>
+                </form>
+                <div class="link-register">
+                    <label>Ja possui cadastro?</label>
+                    <a href="./login.html">Logar-se</a>
+                </div>
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
+<script>
+    function trocaColor(posicao) {
+        var Icon = document.getElementsByClassName('icon')[posicao];
+        Icon.style.color = "#6c5ce7";
+        
+    }
+</script> 
+<script src="../js/loader.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
