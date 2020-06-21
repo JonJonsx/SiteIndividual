@@ -96,7 +96,7 @@ function buildData(pokemon) {
         ${abilities.length > 1 ? '<label class="type">' + abilities[1].ability.name + '</label>' : ''}
         ${abilities.length > 2 ? '<label class="type">' + abilities[2].ability.name + '</label>' : ''}`);
     
-    Pokemon.getEvolution(id).then(data => {
-        buildCard(species.species.name)
-    });
+    // Pokemon.getEvolution(id).then(data => {
+    //     buildCard(species.species.name)
+    // });
 }

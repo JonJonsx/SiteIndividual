@@ -53,7 +53,6 @@ router.post('/', function(req, res, next) {
   	});
 });
 
-
 /* Verificação de usuário */
 router.get('/sessao/:login', function(req, res, next) {
 	let login = req.params.login;

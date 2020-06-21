@@ -2,26 +2,10 @@ import Pokemon from '../js/Pokemon.js';
 import buildCard from '../js/cards.js';
 
 // BARRA DE NAVEGAÇÃO INICIA EM BAIXO E SOBE QUANDO O SCROLL É MOVIDO PARA BAIXO 
-const target = document.getElementById("header"); // PEGANDO O HEADER DA PAGINA PELO ID
-function animeScroll() {
-    const windowTop = window.pageYOffset; // DISTANCIA DO TOP DA PAGINA
-    if (windowTop == 0) {
-        target.style.bottom = `0`;
-        target.style.top = `initial`;
-    } else {
-        target.style.top = `0`;
-        target.style.bottom = `initial`;
-    }
-}
-
-window.addEventListener('scroll', function () { // AQUI CHAMA A FUNÇÃO PELO SCROLL
-    animeScroll();
-});
 
 window.addEventListener('load', () => {
     datapoke();
 })
-
 
 const datapoke = () => {
     const amountPoke = 20; // Quantidade de pokemon que vai aparecer na tela
@@ -60,24 +44,9 @@ function fnGetPoke(poke) {
     });
 }
 
-// BARRA DE PESQUISA
-var search = document.getElementById("txtSearch");
-var boxCard = document.getElementById("boxCard");
-search.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        clear();
-        fnGetPoke(e.target.value.toLowerCase());
-    } else if (e.target.value == '') {
-        clear();
-        datapoke();
-    }
-});
-const clear = () => { boxCard.innerHTML = ''; }
-
-
 
 function trocarPagina(id) {
-    location.href = `./pages/dataPoke.html?id=${id}`;
+    location.href = `./dataPoke.html?id=${id}`;
     console.log("trocando de pagina", id);
 }
 
