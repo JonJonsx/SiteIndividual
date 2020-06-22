@@ -1,8 +1,6 @@
 import Pokemon from '../js/Pokemon.js';
 import buildCard from '../js/cards.js';
 
-// BARRA DE NAVEGAÇÃO INICIA EM BAIXO E SOBE QUANDO O SCROLL É MOVIDO PARA BAIXO 
-
 window.addEventListener('load', () => {
     datapoke();
 })
