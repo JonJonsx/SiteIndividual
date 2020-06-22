@@ -5,17 +5,17 @@ window.addEventListener('load', function () {
     }, 500);
 })
 
-var menu = document.getElementsByClassName('menu')[0];
-if (screen.width <= 780) {
-    menu.style.display = "none";
-}
-function closeOpen() {
-    if (menu.style.display == 'block') {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "block";
-    }
-}
+// var menu = document.getElementsByClassName('menu')[0];
+// if (screen.width <= 780) {
+//     menu.style.display = "none";
+// }
+// function closeOpen() {
+//     if (menu.style.display == 'block') {
+//         menu.style.display = "none";
+//     } else {
+//         menu.style.display = "block";
+//     }
+// }
 
 // BARRA DE NAVEGAÇÃO INICIA EM BAIXO E SOBE QUANDO O SCROLL É MOVIDO PARA BAIXO 
 const target = document.getElementById("header"); // PEGANDO O HEADER DA PAGINA PELO ID

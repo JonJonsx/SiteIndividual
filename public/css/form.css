@@ -114,15 +114,3 @@ form input:focus{
         width: 100%;
     }
 }
-.loading{
-    z-index: 200;
-    position: absolute;
-    width: 100%;
-    background-color: #2b3133;
-    transition: all 0.5s;
-}
-.lottieLoading{
-    margin: 0 auto !important;
-    width: 100% !important;
-    height: 100vh !important;
-}

@@ -19,9 +19,4 @@ router.get('/pokemon', function (req, res, next) {
 		});
 
 });
-
-function hoje(){
-	const momento1 = new Date();
-	return `${momento1.getFullYear()}-${(momento1.getMonth()+1).toString().padStart(2,'0')}-${momento1.getDate().toString().padStart(2,'0')}`;
-}
 module.exports = router;
