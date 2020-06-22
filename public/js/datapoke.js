@@ -32,6 +32,7 @@ Pokemon.getPokemon(idPoke).then(data => {
         data.stats[0].base_stat,
         data.types,
         data.abilities,
+        data.species.url
     );
     buildData(pokemon);
 });
@@ -71,6 +72,7 @@ function buildData(pokemon) {
         speed,
         types,
         abilities,
+        species
     } = pokemon;
 
     $('#txtId').html(id);
@@ -95,8 +97,46 @@ function buildData(pokemon) {
         `<label class="type">${abilities[0].ability.name}</label>
         ${abilities.length > 1 ? '<label class="type">' + abilities[1].ability.name + '</label>' : ''}
         ${abilities.length > 2 ? '<label class="type">' + abilities[2].ability.name + '</label>' : ''}`);
-    
-    // Pokemon.getEvolution(id).then(data => {
-    //     buildCard(species.species.name)
-    // });
+
+    // var specie;
+    // fetch(species)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         specie = data;
+    //         getEvolution();
+    //         return data;
+    //     }).catch(function (error) {
+    //         console.log(`Erro:${error.message}`);
+    //     })
+
+    // const getEvolution = () => {
+    //     fetch(specie.evolution_chain.url)
+    //         .then(function (response) {
+    //             return response.json();
+    //         })
+    //         .then(function (data) {
+    //             // console.log()
+    //             debugger;
+    //             const evolutionPoke = [{
+    //                 nome: typeof data.chain.species.name === "undefined" ? "Sem evolução" : data.chain.species.name
+    //             },
+    //             {
+    //                 nome: typeof data.chain.evolves_to[0].species.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].species.name
+    //             },
+    //             {
+    //                 nome: typeof data.chain.evolves_to[0].evolves_to[0].species.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].evolves_to[0].species.name
+    //             }];
+    //             const nomePoke = evolutionPoke.map(poke => poke.nome);
+    //             for(var i = 0; i < nomePoke.length; i++){
+    //                 console.log(nomePoke[i])
+    //             }
+    //             return data;
+    //         }).catch(function (error) {
+    //             console.log(`Erro:${error.message}`);
+    //         })
+    // }
+    // const getEvolution = () =>{
+    //     return fetch(pokemon)
 }

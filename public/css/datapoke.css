@@ -30,6 +30,10 @@ progress {
 #progressSpeed::-webkit-progress-value {
     background-color: var(--speed);
 }
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
 .pokeGeral{
     font-size: 20px;
     background-color: var(--backgroundColor);
@@ -37,6 +41,18 @@ progress {
 .flexBox{
     display: flex;
     justify-content: space-between;
+}
+.flexBox .contentData label{
+    display: block;
+    text-align: left;
+}
+.flexBox .contentData{
+    width: 50%;
+ 
+}
+.titlePoke{
+    font-size: 18px;
+    font-weight: 800;
 }
 .pokeGeral{
     border-radius: 10px;

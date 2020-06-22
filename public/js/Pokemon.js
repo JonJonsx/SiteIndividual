@@ -13,6 +13,7 @@ class Pokemon {
         speed,
         types,
         abilities,
+        species,
     ) {
         this.id = id;
         this.name = name;
@@ -27,6 +28,7 @@ class Pokemon {
         this.speed = speed;
         this.types = types;
         this.abilities = abilities;
+        this.species = species;
     }
 
     alturaReal() {
