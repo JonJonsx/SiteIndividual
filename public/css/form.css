@@ -47,9 +47,6 @@ form{
     position: relative;
 }
 
-.icon::after{
-    color:red;
-}
 form input{
     height: 50px;
 }

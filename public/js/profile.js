@@ -56,22 +56,6 @@ function fnGetPoke(poke) {
     });
 }
 
-// BARRA DE PESQUISA
-var search = document.getElementById("txtSearch");
-var boxCard = document.getElementById("boxCard");
-search.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        clear();
-        fnGetPoke(e.target.value.toLowerCase());
-    } else if (e.target.value == '') {
-        clear();
-        datapoke();
-    }
-});
-const clear = () => { boxCard.innerHTML = ''; }
-
-
-
 function trocarPagina(id) {
     location.href = `./dataPoke.html?id=${id}`;
     console.log("trocando de pagina", id);
