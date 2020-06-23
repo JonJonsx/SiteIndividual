@@ -109,12 +109,12 @@
         const notification = (alerta) => {
             groupNotification.innerHTML += `<div class="notification"><label>${alerta}</label></div>`
         }
-        if (usuario.nome.trim().length <= 10) {
+        if (usuario.nome.trim().length <= 5) {
             notification('Digite um nome valido por favor');
             erros.push('Digite um nome valido por favor');
         }
-        if (usuario.login.trim().length <= 10) {
-            notification('Digite um login com mais de 10 letras');
+        if (usuario.login.trim().length <= 5) {
+            notification('Digite um login com mais de 5 letras');
             erros.push('1');
         }
         if (usuario.senha.trim().length <= 6) {
