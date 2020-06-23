@@ -103,7 +103,7 @@
             notification('Digite um nome valido por favor');
             erros.push('Digite um nome valido por favor');
         }
-        if (usuario.assunto.trim().length <= 5) {
+        if (usuario.assunto.trim().length < 5) {
             notification('Digite um assunto com mais de 5 letras');
             erros.push('1');
         }
