@@ -32,6 +32,7 @@
     </header>
     <section>
         <div class="groupNotification" id="groupNotification">
+            <!-- <div class="notification"><label>${alerta}</label></div> -->
         </div>
     </section>
     <section class="section-form section">
@@ -117,16 +118,19 @@
             erros.push('1');
         }
         if (usuario.senha.trim().length <= 6) {
-            notification('Digite um uma senha Valida');
+            notification('Digite um uma senha com mais de 6 caracteres e sem espaços');
+            erros.push('1');
+        }else if(usuario.senha == usuario.senha){
+            notification('Digite um uma senhas iguais e sem espaços');
             erros.push('1');
         }
-        if(usuario.email.indexOf('@') > -1 || usuario.email.indexOf('.com') > -1){
+        if(usuario.email.indexOf('@') < 0  || usuario.email.indexOf('.com') < 0){
             notification('Digite um email valido : example@example.com');
             erros.push("1");
         }
         setTimeout(()=>{
             groupNotification.innerHTML = '';
-        },2000)
+        },5000)
         return erros.length > 0;
     }
 
