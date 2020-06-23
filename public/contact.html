@@ -32,13 +32,15 @@
             </nav>
         </div>
     </header>
+    <div class="groupNotification" id="groupNotification">
+    </div>
     <section class="section-form section-contact section">
         <div class="container">
             <div class="content">
                 <form action="" method="post">
                     <div>
                         <label for="txtNome">Nome</label>
-                        <input type="text" placeholder="Nome" id="txtNome">
+                        <input type="text" placeholder="Nome" id="txtName">
                     </div>
                     <div>
                         <label for="txtEmail">Email</label>
@@ -50,9 +52,9 @@
                     </div>
                     <div>
                         <label for="txtMensagem">Mesangem</label>
-                        <textarea name="" id="" cols="30" rows="10" id="txtMensagem"></textarea>
+                        <textarea name="" cols="30" rows="10" id="txtMensagem"></textarea>
                     </div>
-                    <button type="button" class="btn">Enviar</button>
+                    <button type="button" class="btn" onclick="contemErros()">Enviar</button>
                 </form>
                 <div class="link-register">
                 </div>
@@ -83,6 +85,41 @@
 </body>
 
 </html>
+<script>
+    const contemErros = () =>{
+        groupNotification.innerHTML = '';
+        const erros = [];
+        const usuario = {
+            nome: txtName.value,
+            email: txtEmail.value,
+            assunto: txtAssunto.value,
+            mensagem: txtMensagem.value
+        }
+
+        const notification = (alerta) => {
+            groupNotification.innerHTML += `<div class="notification"><label>${alerta}</label></div>`
+        }
+        if (usuario.nome.trim().length <= 10) {
+            notification('Digite um nome valido por favor');
+            erros.push('Digite um nome valido por favor');
+        }
+        if (usuario.assunto.trim().length <= 5) {
+            notification('Digite um assunto com mais de 5 letras');
+            erros.push('1');
+        }
+        if(usuario.email.indexOf('@') < 0  || usuario.email.indexOf('.com') < 0){
+            notification('Digite um email valido : example@example.com');
+            erros.push("1");
+        }
+        if(usuario.mensagem.trim().length <= 10) {
+            notification('Digite um mensagem com mais de 10 letras');
+            erros.push('1');
+        }
+        setTimeout(()=>{
+            groupNotification.innerHTML = '';
+        },5000)
+    }
+</script>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js"></script>
 <script src="../js/loader.js"></script>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
