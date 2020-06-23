@@ -9,7 +9,6 @@ function buildCard(pokemon){
     `<div class="card" style="color:${typeName[0]};background: linear-gradient(to right,${typeColor[0]},${typeColor[1] || '#0F2027'} );">
         <div class="imgBox">
             <img src="${pokemon.image}" alt="">
-            <i class="far fa-heart" aria-hidden="true"></i>
         </div>
         <div class="read">
             <label id="pokemonId" for="">Nº ${pokemon.id}</label>

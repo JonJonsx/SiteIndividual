@@ -61,7 +61,3 @@ function trocarPagina(id) {
     location.href = `./dataPoke.html?id=${id}`;
     console.log("trocando de pagina", id);
 }
-
-//PLANO DE FUNDO ALEATORIO
-var nImage = parseInt(Math.random() * 2) + 1;
-document.getElementsByTagName('body')[0].style.backgroundImage = `url(./img/img${nImage}.png)`;
