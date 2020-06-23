@@ -30,22 +30,27 @@
             </nav>
         </div>
     </header>
-    <section class="section-form">
+    <section>
+        <div class="groupNotification" id="groupNotification">
+        </div>
+    </section>
+    <section class="section-form section">
         <div class="container">
             <div class="content">
-                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <form id="form_cadastro" onsubmit="return cadastrar(event)">
                     <div>
                         <input onfocus="trocaColor(0)" type="text" placeholder="Nome completo" id="txtName" name="nome">
                         <i class="fas fa-user icon"></i>
                     </div>
                     <div>
-                        <input onfocus="trocaColor(1)" type="text" placeholder="Nome de Usuario" id="txtUsuario" name="login">
+                        <input onfocus="trocaColor(1)" type="text" placeholder="Nome de Usuario" id="txtUsuario"
+                            name="login">
                         <i class="fas fa-user icon"></i>
                     </div>
-                    <!-- <div>
-                        <input onfocus="trocaColor(2)" type="email" placeholder="Email" id="txtEmail">
+                    <div>
+                        <input onfocus="trocaColor(2)" type="email" placeholder="Email" id="txtEmail" name="email">
                         <i class="fas fa-envelope icon"></i>
-                    </div> -->
+                    </div>
                     <div>
                         <input onfocus="trocaColor(3)" type="password" placeholder="Senha" id="txtPass" name="senha">
                         <i class="fas fa-lock icon"></i>
@@ -60,9 +65,6 @@
                     <label>Ja possui cadastro?</label>
                     <a href="./login.html">Logar-se</a>
                 </div>
-            </div>
-            <div>
-
             </div>
         </div>
     </section>
@@ -81,8 +83,8 @@
         <div class="links">
             <h2>Redes Socias</h2>
             <a href="https://github.com/JonJonsx"><i class="fab fa-github"></i> JonJonsx</a>
-            <a href="https://www.linkedin.com/in/jonatan-da-silva-souza-91b69a189/"><i
-                    class="fab fa-linkedin"></i> Jonatan Da Silva Souza</a>
+            <a href="https://www.linkedin.com/in/jonatan-da-silva-souza-91b69a189/"><i class="fab fa-linkedin"></i>
+                Jonatan Da Silva Souza</a>
             <a href="https://www.facebook.com/jonatan.souza.3781/"><i class="fab fa-facebook"></i> Jonatan Souza</a>
             <a href="https://www.instagram.com/jhow.dsouza/?hl=pt-br"><i class="fab fa-instagram"></i> @jhow.dsouza</a>
         </div>
@@ -92,12 +94,53 @@
 </html>
 <script src="https://kit.fontawesome.com/4d7d6b2306.js" crossorigin="anonymous"></script>
 <script>
+    const contemErros = () =>{
+        groupNotification.innerHTML = '';
+        const erros = [];
+        const usuario = {
+            nome: txtName.value,
+            login: txtUsuario.value,
+            email: txtEmail.value,
+            senha: txtPass.value,
+            confirmaSenha: txtConfimPass.value
+        }
+
+        const notification = (alerta) => {
+            groupNotification.innerHTML += `<div class="notification"><label>${alerta}</label></div>`
+        }
+        if (usuario.nome.trim().length <= 10) {
+            notification('Digite um nome valido por favor');
+            erros.push('Digite um nome valido por favor');
+        }
+        if (usuario.login.trim().length <= 10) {
+            notification('Digite um login com mais de 10 letras');
+            erros.push('1');
+        }
+        if (usuario.senha.trim().length <= 6) {
+            notification('Digite um uma senha Valida');
+            erros.push('1');
+        }
+        if(usuario.email.indexOf('@') > -1 || usuario.email.indexOf('.com') > -1){
+            notification('Digite um email valido : example@example.com');
+            erros.push("1");
+        }
+        setTimeout(()=>{
+            groupNotification.innerHTML = '';
+        },2000)
+        return erros.length > 0;
+    }
+
     function trocaColor(posicao) {
         var Icon = document.getElementsByClassName('icon')[posicao];
         Icon.style.color = "#6c5ce7";
 
     }
-    function cadastrar() {
+    function cadastrar(event) {
+        debugger;
+        event.preventDefault();
+        if(contemErros()){
+            return
+        }
         var formulario = new URLSearchParams(new FormData(form_cadastro));
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -105,15 +148,13 @@
         }).then(function (response) {
 
             if (response.ok) {
-
                 window.location.href = 'login.html';
-
             } else {
 
                 console.log('Erro de cadastro!');
                 response.text().then(function (resposta) {
                     // div_erro.innerHTML = resposta;
-                    alert("Erro",resposta);
+                    alert("Erro", resposta);
                 });
             }
         });

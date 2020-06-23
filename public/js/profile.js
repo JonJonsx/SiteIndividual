@@ -7,7 +7,8 @@ window.addEventListener('load', () => {
 
 var favorite;
 const favoritePoke = () => {
-    return fetch(`http://localhost:3000/leituras/pokemon`)
+    const id = sessionStorage.id_usuario_meuapp;
+    return fetch(`http://localhost:3000/leituras/pokemon/?` + new URLSearchParams({id}))
         .then(function (response) {
             return response.json();
         })

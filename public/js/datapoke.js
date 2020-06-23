@@ -99,7 +99,7 @@ function buildData(pokemon) {
         ${abilities.length > 2 ? '<label class="type">' + abilities[2].ability.name + '</label>' : ''}`);
 
     // var specie;
-    // fetch(species)
+    // fetch('https://pokeapi.co/api/v2/pokemon-species/132/')
     //     .then(function (response) {
     //         return response.json();
     //     })
@@ -118,18 +118,18 @@ function buildData(pokemon) {
     //         })
     //         .then(function (data) {
     //             // console.log()
-    //             debugger;
+                
     //             const evolutionPoke = [{
-    //                 nome: typeof data.chain.species.name === "undefined" ? "Sem evolução" : data.chain.species.name
+    //                 nome: typeof data.chain?.species?.name === "undefined" ? "Sem evolução" : data.chain.species.name
     //             },
     //             {
-    //                 nome: typeof data.chain.evolves_to[0].species.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].species.name
+    //                 nome: typeof data.chain?.evolves_to[0]?.species?.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].species.name
     //             },
     //             {
-    //                 nome: typeof data.chain.evolves_to[0].evolves_to[0].species.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].evolves_to[0].species.name
+    //                 nome: typeof data.chain?.evolves_to[0]?.evolves_to[0]?.species?.name === "undefined" ? "Sem evolução" : data.chain.evolves_to[0].evolves_to[0].species.name
     //             }];
     //             const nomePoke = evolutionPoke.map(poke => poke.nome);
-    //             for(var i = 0; i < nomePoke.length; i++){
+    //             for (var i = 0; i < nomePoke.length; i++) {
     //                 console.log(nomePoke[i])
     //             }
     //             return data;
@@ -137,6 +137,4 @@ function buildData(pokemon) {
     //             console.log(`Erro:${error.message}`);
     //         })
     // }
-    // const getEvolution = () =>{
-    //     return fetch(pokemon)
 }

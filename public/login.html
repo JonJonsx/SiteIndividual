@@ -29,7 +29,7 @@
             </nav>
         </div>
     </header>
-    <section class="section-form">
+    <section class="section-form section">
         <div class="container">
             
             <div class="content">
@@ -96,6 +96,8 @@
             if (resposta.ok) {
 
                 resposta.json().then(json => {
+                    // debugger;
+                    sessionStorage.id_usuario_meuapp = json.id;
                     sessionStorage.login_usuario_meuapp = json.login;
                     sessionStorage.nome_usuario_meuapp = json.nome;
                     
